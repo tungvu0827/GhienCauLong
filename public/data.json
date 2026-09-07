@@ -1,31 +1,31 @@
 {
   "channel": {
     "name": "Ghiền Cầu Lông",
-    "desc": "Chuyên Review & Săn Deal Cầu Lông Chính Hãng Giá Siêu Tốt 🏸 🔥",
+    "desc": "Tổng hợp các set đấu hay nhất\n🏸 Gear tuyển thủ & Đồ ra sân",
     "cover": "./images/channel_cover.jpg",
-    "avatar": "./images/channel_avatar.jpg",
+    "avatar": "./images/avt-ghiencaulong.jpg",
     "tiktok": "https://www.tiktok.com/@ghiencaulong_",
     "facebook": "https://www.facebook.com/profile.php?id=61590590814819"
   },
   "athletes": [
     {
       "id": "seo-seung-jae",
-      "name": "SEO SEUNG JAE",
-      "country": "SOUTH KOREA",
-      "flag": "🇰🇷",
-      "birthplace": "Jeonju, South Korea",
-      "birthyear": "1997.09.04",
-      "portrait": "./images/seo_seung_jae.jpg",
-      "height": "182 cm",
-      "weight": "75 kg",
+      "name": "LIN DAN",
+      "country": "TRUNG QUỐC",
+      "flag": "CN",
+      "birthplace": "Longyan, China",
+      "birthyear": "1983.10.14",
+      "portrait": "./images/lindan-profile.jpg",
+      "height": "178 cm",
+      "weight": "70 kg",
       "shoesize": "43",
       "tension": "29/31 lbs",
       "gear": [
         {
           "type": "VỢT",
-          "name": "YONEX NANOFLARE 700 PRO (MIDNIGHT PURPLE) 3UG5",
-          "img": "./images/nanoflare_700_pro.jpg",
-          "link": "https://s.shopee.vn/8AUYX9SOZX"
+          "name": "Yonex Astrox 88D Pro",
+          "img": "./images/vot-yonex-astrox-88d-pro-lindan.jpg",
+          "link": " https://s.shopee.vn/5foXqFinrT"
         },
         {
           "type": "GIÀY",
