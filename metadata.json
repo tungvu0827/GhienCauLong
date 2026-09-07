@@ -1,0 +1,6 @@
+{
+  "name": "Ghiền Cầu Lông - Bio & Đồ Tuyển Thủ",
+  "description": "Trang link in bio chính thức của Ghiền Cầu Lông: tra cứu vợt, giày, cước của các tay vợt hàng đầu thế giới và phụ kiện chính hãng.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
