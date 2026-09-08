@@ -1065,6 +1065,65 @@
       margin-top: 2px;
     }
 
+    /* 1.1 DANH HIỆU NỔI BẬT CỦA VĐV (HIỂN THỊ DƯỚI KHỐI THÔNG SỐ) */
+    .pro-achievements-wrap {
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top: 1px solid #232D39;
+    }
+
+    .pro-achievements-title {
+      font-size: 11px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--accent-lime);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      margin-bottom: 9px;
+    }
+
+    .pro-achievements-title svg {
+      width: 14px;
+      height: 14px;
+      fill: var(--accent-lime);
+      color: var(--accent-lime);
+      flex-shrink: 0;
+    }
+
+    .pro-achievements-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .pro-achievement-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      font-size: 13px;
+      color: #F1F5F9;
+      line-height: 1.4;
+      font-weight: 500;
+    }
+
+    .pro-achievement-icon {
+      flex-shrink: 0;
+      margin-top: 2.5px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-lime);
+    }
+
+    .pro-achievement-text {
+      flex: 1;
+    }
+
     /* 2. CÁC THẺ ĐỒ NGHỀ PRO (VỢT, GIÀY, CƯỚC, CUỐN CÁN) */
     .gear-card-pro {
       background: #FFFFFF !important;
@@ -1126,6 +1185,7 @@
       position: relative;
       background: #FFFFFF;
       padding: 12px;
+      overflow: hidden; /* Cắt phần ảnh thu phóng tràn khung */
     }
 
     .gear-pro-img-box.racquet-box {
@@ -1145,22 +1205,32 @@
       max-height: 100%;
       object-fit: contain;
       display: block;
+      transition: transform 0.15s ease-out;
     }
 
-    .gear-pro-play-btn {
-      position: absolute;
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-      background: #0F172A;
-      color: #FFFFFF;
+    /* Khung xám thông báo lỗi định dạng ảnh (thay vì hiện trình phát video) */
+    .gear-img-format-error {
+      width: 100%;
+      height: 100%;
+      min-height: 80px;
+      background: #F1F5F9;
+      border: 1px dashed #CBD5E1;
+      border-radius: 8px;
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
-      z-index: 3;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
-      pointer-events: none;
-      padding-left: 2px;
+      gap: 6px;
+      color: #64748B;
+      font-size: 11.5px;
+      font-weight: 600;
+      text-align: center;
+      padding: 10px;
+      user-select: none;
+    }
+
+    .gear-img-format-error svg {
+      color: #94A3B8;
     }
 
     /* THANH PILL CHỨA TÊN SẢN PHẨM */
@@ -2251,6 +2321,20 @@
                 </div>
               </div>
 
+              <!-- DANH HIỆU NỔI BẬT (TỐI ĐA 4 DÒNG) -->
+              <div style="margin-top:22px; border-top:1px solid var(--border); padding-top:16px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+                  <div>
+                    <span style="font-weight:800; text-transform:uppercase; font-size:14px; color:var(--text); letter-spacing:0.03em;">DANH HIỆU NỔI BẬT</span>
+                    <span id="achievements-count-hint" style="font-size:12px; color:var(--subtext); margin-left:6px; font-weight:600;">(0/4 dòng)</span>
+                  </div>
+                  <button type="button" class="btn-admin primary" id="btn-add-achievement" style="padding:4px 12px; font-size:12px; font-weight:700;">+ Thêm danh hiệu</button>
+                </div>
+                <div id="admin-achievements-list">
+                  <!-- Render danh sách các dòng danh hiệu -->
+                </div>
+              </div>
+
               <!-- Danh sách đồ nghề của VĐV này -->
               <div style="margin-top:24px; border-top:1px solid var(--border); padding-top:16px;">
                 <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
@@ -2902,6 +2986,27 @@
                 </div>
               </div>
             </div>
+
+            ${Array.isArray(athlete.achievements) && athlete.achievements.filter(a => a && a.trim()).length > 0 ? `
+              <div class="pro-achievements-wrap">
+                <div class="pro-achievements-title">
+                  <svg viewBox="0 0 24 24"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+                  <span>DANH HIỆU NỔI BẬT</span>
+                </div>
+                <ul class="pro-achievements-list">
+                  ${athlete.achievements.filter(a => a && a.trim()).slice(0, 4).map(ach => `
+                    <li class="pro-achievement-item">
+                      <span class="pro-achievement-icon" aria-hidden="true">
+                        <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round">
+                          <polyline points="20 6 9 17 4 12"/>
+                        </svg>
+                      </span>
+                      <span class="pro-achievement-text">${ach}</span>
+                    </li>
+                  `).join('')}
+                </ul>
+              </div>
+            ` : ''}
           </div>
 
           <!-- Nút quay lại trên máy tính / iPad -->
@@ -3637,10 +3742,106 @@
       // Kích hoạt xem trước ảnh
       document.getElementById('f-ath-portrait').dispatchEvent(new Event('input'));
 
-      // Render danh sách đồ nghề của VĐV
+      // Render danh sách danh hiệu nổi bật & đồ nghề của VĐV
+      renderAthleteAchievementsEditor(ath);
       renderAthleteGearEditor(ath);
       renderAdminLists();
     }
+
+    // Helper an toàn tránh lỗi ký tự đặc biệt trong input value
+    function escapeHtml(str) {
+      if (str === null || str === undefined) return '';
+      return String(str)
+        .replace(/&/g, '&amp;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#039;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;');
+    }
+
+    // =========================================================================
+    // QUẢN LÝ DANH HIỆU NỔI BẬT CỦA VĐV (TỐI ĐA 4 DÒNG)
+    // =========================================================================
+    function renderAthleteAchievementsEditor(ath) {
+      const listEl = document.getElementById('admin-achievements-list');
+      const addBtn = document.getElementById('btn-add-achievement');
+      const countHint = document.getElementById('achievements-count-hint');
+      if (!listEl) return;
+
+      if (!Array.isArray(ath.achievements)) {
+        ath.achievements = [];
+      }
+
+      const count = ath.achievements.length;
+      if (countHint) {
+        countHint.textContent = `(${count}/4 dòng)`;
+      }
+
+      if (addBtn) {
+        if (count >= 4) {
+          addBtn.disabled = true;
+          addBtn.style.opacity = '0.5';
+          addBtn.style.cursor = 'not-allowed';
+          addBtn.title = 'Đã đạt tối đa 4 dòng danh hiệu';
+        } else {
+          addBtn.disabled = false;
+          addBtn.style.opacity = '1';
+          addBtn.style.cursor = 'pointer';
+          addBtn.title = '';
+        }
+      }
+
+      if (count === 0) {
+        listEl.innerHTML = `
+          <div style="font-size:12px; color:var(--subtext); font-style:italic; padding:10px 14px; background:#151B23; border-radius:8px; border:1px dashed var(--border);">
+            Chưa có danh hiệu nào. Bấm nút <strong>"+ Thêm danh hiệu"</strong> ở trên để thêm thành tích cho VĐV (tối đa 4 dòng).
+          </div>
+        `;
+        return;
+      }
+
+      listEl.innerHTML = ath.achievements.map((ach, idx) => `
+        <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px;">
+          <span style="font-size:11.5px; font-weight:800; color:var(--accent-lime); width:24px; text-align:center; flex-shrink:0;">#${idx + 1}</span>
+          <input type="text" class="form-control" value="${escapeHtml(ach || '')}" placeholder="Ví dụ: Vô địch Thế giới 2023, HCV Olympic Paris 2024..." oninput="updateAchievementField(${idx}, this.value)" style="flex:1;" />
+          <button type="button" class="btn-admin danger" onclick="removeAchievementItem(${idx})" style="padding:6px 12px; font-size:12px; flex-shrink:0; display:flex; align-items:center; gap:4px;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"/></svg>
+            Xóa
+          </button>
+        </div>
+      `).join('');
+    }
+
+    function updateAchievementField(idx, val) {
+      if (editingAthleteIndex === null || !appData || !appData.athletes || !appData.athletes[editingAthleteIndex]) return;
+      const ath = appData.athletes[editingAthleteIndex];
+      if (!Array.isArray(ath.achievements)) ath.achievements = [];
+      ath.achievements[idx] = val;
+    }
+
+    function removeAchievementItem(idx) {
+      if (editingAthleteIndex === null || !appData || !appData.athletes || !appData.athletes[editingAthleteIndex]) return;
+      const ath = appData.athletes[editingAthleteIndex];
+      if (!Array.isArray(ath.achievements)) return;
+      ath.achievements.splice(idx, 1);
+      renderAthleteAchievementsEditor(ath);
+    }
+
+    document.getElementById('btn-add-achievement').addEventListener('click', () => {
+      if (editingAthleteIndex === null || !appData || !appData.athletes || !appData.athletes[editingAthleteIndex]) return;
+      const ath = appData.athletes[editingAthleteIndex];
+      if (!Array.isArray(ath.achievements)) ath.achievements = [];
+      if (ath.achievements.length >= 4) {
+        showToast("Mỗi VĐV chỉ được tối đa 4 dòng danh hiệu!");
+        return;
+      }
+      ath.achievements.push("");
+      renderAthleteAchievementsEditor(ath);
+      setTimeout(() => {
+        const inputs = document.querySelectorAll('#admin-achievements-list input');
+        if (inputs.length) inputs[inputs.length - 1].focus();
+      }, 50);
+    });
 
     function renderAthleteGearEditor(ath) {
       const gearListEl = document.getElementById('admin-gear-list');
@@ -3736,6 +3937,7 @@
         weight: "72 kg",
         shoesize: "42",
         tension: "28/30 lbs",
+        achievements: [],
         gear: [
           { type: "VỢT", name: "VỢT THI ĐẤU", img: "", link: "" },
           { type: "GIÀY", name: "GIÀY THI ĐẤU", img: "", link: "" },
@@ -3773,6 +3975,10 @@
           ath.weight = document.getElementById('f-ath-weight').value.trim();
           ath.shoesize = document.getElementById('f-ath-shoesize').value.trim();
           ath.tension = document.getElementById('f-ath-tension').value.trim();
+          ath.achievements = (ath.achievements || [])
+            .map(s => (s || '').trim())
+            .filter(Boolean)
+            .slice(0, 4);
 
           persistData(`Đã lưu thông tin VĐV ${newName}!`);
         }

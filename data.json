@@ -1,0 +1,257 @@
+{
+  "channel": {
+    "name": "Ghiền Cầu Lông",
+    "desc": "Chuyên Review & Săn Deal Cầu Lông Chính Hãng Giá Siêu Tốt 🏸 🔥",
+    "cover": "./images/channel_cover.jpg",
+    "avatar": "./images/channel_avatar.jpg",
+    "tiktok": "https://www.tiktok.com/@ghiencaulong_",
+    "facebook": "https://www.facebook.com/profile.php?id=61590590814819"
+  },
+  "athletes": [
+    {
+      "id": "seo-seung-jae",
+      "name": "SEO SEUNG JAE",
+      "country": "SOUTH KOREA",
+      "flag": "🇰🇷",
+      "birthplace": "Jeonju, South Korea",
+      "birthyear": "1997.09.04",
+      "portrait": "./images/seo_seung_jae.jpg",
+      "height": "182 cm",
+      "weight": "75 kg",
+      "shoesize": "43",
+      "tension": "29/31 lbs",
+      "achievements": [
+        "Vô địch Thế giới Đôi nam 2023 (BWF World Champion)",
+        "Vô địch Thế giới Đôi nam nữ 2023 (BWF World Champion)",
+        "VĐV nam xuất sắc nhất năm 2023 (BWF Player of the Year)",
+        "Vô địch Toàn Anh 2024 (All England Open)"
+      ],
+      "gear": [
+        {
+          "type": "VỢT",
+          "name": "YONEX NANOFLARE 700 PRO (MIDNIGHT PURPLE) 3UG5",
+          "img": "./images/nanoflare_700_pro.jpg",
+          "link": "https://s.shopee.vn/8AUYX9SOZX"
+        },
+        {
+          "type": "GIÀY",
+          "name": "YONEX POWER CUSHION 65Z4",
+          "img": "./images/yonex_65z4.jpg",
+          "link": "https://s.shopee.vn/6pzzIF316o"
+        },
+        {
+          "type": "CƯỚC",
+          "name": "YONEX BG 80 (WHITE)",
+          "img": "./images/bg80_white.jpg",
+          "link": "https://s.shopee.vn/8AUhPtfAw7"
+        },
+        {
+          "type": "CUỐN CÁN",
+          "name": "YONEX AC 402DX (YELLOW)",
+          "img": "./images/grip_ac402dx.jpg",
+          "link": "https://s.shopee.vn/5VTwF7qUlw"
+        }
+      ]
+    },
+    {
+      "id": "kim-won-ho",
+      "name": "KIM WON HO",
+      "country": "SOUTH KOREA",
+      "flag": "🇰🇷",
+      "birthplace": "Suwon, South Korea",
+      "birthyear": "1999.06.02",
+      "portrait": "./images/kim_won_ho.jpg",
+      "height": "184 cm",
+      "weight": "78 kg",
+      "shoesize": "43",
+      "tension": "29/31 lbs",
+      "achievements": [
+        "Huy chương Bạc Olympic Paris 2024 (Đôi nam nữ)",
+        "Huy chương Bạc ASIAD 19 (Đôi nam)",
+        "Vô địch Đức Mở rộng (German Open)",
+        "Huy chương Vàng Sudirman Cup cùng Hàn Quốc"
+      ],
+      "gear": [
+        {
+          "type": "VỢT",
+          "name": "YONEX ASTROX 77 PRO (HIGH ORANGE) 3UG5",
+          "img": "./images/astrox_77_pro.jpg",
+          "link": "https://s.shopee.vn/8AUYX9SOZX"
+        },
+        {
+          "type": "GIÀY",
+          "name": "YONEX POWER CUSHION 65Z4",
+          "img": "./images/yonex_65z4.jpg",
+          "link": "https://s.shopee.vn/6pzzIF316o"
+        },
+        {
+          "type": "CƯỚC",
+          "name": "YONEX BG 80 (WHITE)",
+          "img": "./images/bg80_white.jpg",
+          "link": "https://s.shopee.vn/8AUhPtfAw7"
+        },
+        {
+          "type": "CUỐN CÁN",
+          "name": "YONEX AC 402DX (YELLOW)",
+          "img": "./images/grip_ac402dx.jpg",
+          "link": "https://s.shopee.vn/5VTwF7qUlw"
+        }
+      ]
+    },
+    {
+      "id": "viktor-axelsen",
+      "name": "VIKTOR AXELSEN",
+      "country": "ĐAN MẠCH",
+      "flag": "🇩🇰",
+      "birthplace": "Odense",
+      "birthyear": "1994.01.04",
+      "portrait": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?w=600&auto=format&fit=crop&q=80",
+      "height": "194 cm",
+      "weight": "88 kg",
+      "shoesize": "47",
+      "tension": "31/33 lbs",
+      "achievements": [
+        "2x Huy chương Vàng Olympic (Tokyo 2020 & Paris 2024)",
+        "2x Vô địch Thế giới (BWF World Champion 2017, 2022)",
+        "Hạng 1 Thế giới (World No. 1 BWF Men's Singles)",
+        "3x Vô địch Toàn Anh (All England Open)"
+      ],
+      "gear": [
+        {
+          "type": "VỢT",
+          "name": "YONEX ASTROX 100ZZ (KURENAI)",
+          "img": "./images/astrox_100zz.jpg",
+          "link": "https://s.shopee.vn/8AUYX9SOZX"
+        },
+        {
+          "type": "GIÀY",
+          "name": "YONEX POWER CUSHION 65Z4",
+          "img": "./images/yonex_65z4.jpg",
+          "link": "https://s.shopee.vn/6pzzIF316o"
+        },
+        {
+          "type": "CƯỚC",
+          "name": "YONEX BG 80 (WHITE)",
+          "img": "./images/bg80_white.jpg",
+          "link": "https://s.shopee.vn/8AUhPtfAw7"
+        }
+      ]
+    },
+    {
+      "id": "kento-momota",
+      "name": "KENTO MOMOTA",
+      "country": "NHẬT BẢN",
+      "flag": "🇯🇵",
+      "birthplace": "Kagawa",
+      "birthyear": "1994.09.01",
+      "portrait": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format&fit=crop&q=80",
+      "height": "175 cm",
+      "weight": "68 kg",
+      "shoesize": "41.5",
+      "tension": "27/29 lbs",
+      "achievements": [
+        "2x Vô địch Thế giới (BWF World Champion 2018, 2019)",
+        "Kỷ lục Guinness 11 danh hiệu BWF trong 1 mùa giải (2019)",
+        "2x Vô địch Toàn Anh (All England Open)",
+        "Cựu tay vợt Hạng 1 Thế giới (World No. 1 BWF)"
+      ],
+      "gear": [
+        {
+          "type": "VỢT",
+          "name": "YONEX ASTROX 99 PRO",
+          "img": "./images/astrox_77_pro.jpg",
+          "link": "https://s.shopee.vn/70Ib9DDuAl"
+        },
+        {
+          "type": "GIÀY",
+          "name": "YONEX POWER CUSHION 65Z4",
+          "img": "./images/yonex_65z4.jpg",
+          "link": "https://s.shopee.vn/BT5MHciyY"
+        }
+      ]
+    },
+    {
+      "id": "kevin-sanjaya",
+      "name": "KEVIN SANJAYA",
+      "country": "INDONESIA",
+      "flag": "🇮🇩",
+      "birthplace": "Banyuwangi",
+      "birthyear": "1995.08.02",
+      "portrait": "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=600&auto=format&fit=crop&q=80",
+      "height": "170 cm",
+      "weight": "55 kg",
+      "shoesize": "40",
+      "tension": "29/31 lbs",
+      "achievements": [
+        "Huy chương Vàng ASIAD 2018 (Đôi nam)",
+        "2x Vô địch Toàn Anh (All England 2017, 2018)",
+        "Giữ vị trí Hạng 1 Thế giới hơn 4 năm liên tiếp",
+        "Kỷ lục gia danh hiệu BWF World Tour Super Series"
+      ],
+      "gear": [
+        {
+          "type": "VỢT",
+          "name": "YONEX ASTROX 88S",
+          "img": "./images/astrox_100zz.jpg",
+          "link": "https://s.shopee.vn/9pcmWVauov"
+        },
+        {
+          "type": "GIÀY",
+          "name": "YONEX POWER CUSHION 65Z4",
+          "img": "./images/yonex_65z4.jpg",
+          "link": "https://s.shopee.vn/9KhKH0T3e2"
+        }
+      ]
+    }
+  ],
+  "bestsellers": [
+    {
+      "id": "bs-1",
+      "name": "CUỐN CÁN YONEX",
+      "desc": "Chống trượt tay, thay 2 tháng một lần",
+      "price": "35.000đ",
+      "img": "./images/grip_ac402dx.jpg",
+      "link": "https://s.shopee.vn/8AUhPtfAw7"
+    },
+    {
+      "id": "bs-2",
+      "name": "QUẤN CỐT VỢT",
+      "desc": "Bảo vệ khung, đỡ xước khi va vợt",
+      "price": "45.000đ",
+      "img": "https://images.unsplash.com/photo-1584905066893-7d5c142ba4e1?w=300&auto=format&fit=crop&q=80",
+      "link": "https://s.shopee.vn/5VTwF7qUlw"
+    },
+    {
+      "id": "bs-3",
+      "name": "BALO CẦU LÔNG YONEX",
+      "desc": "Ngăn để giày riêng, đựng được 3 vợt",
+      "price": "480.000đ",
+      "img": "https://images.unsplash.com/photo-1553062407-98eeb64c6a62?w=300&auto=format&fit=crop&q=80",
+      "link": "https://s.shopee.vn/2g9bx8djZt"
+    },
+    {
+      "id": "bs-4",
+      "name": "BỘ ĐỒ CHIHARU SHIDA",
+      "desc": "Áo quần thi đấu, form Nhật",
+      "price": "220.000đ",
+      "img": "https://images.unsplash.com/photo-1515886657613-9f3515b0c78f?w=300&auto=format&fit=crop&q=80",
+      "link": "https://s.shopee.vn/7psnGwYvlb"
+    }
+  ],
+  "beginners": [
+    {
+      "id": "bg-1",
+      "name": "GIÀY CẦU LÔNG TẦM GIÁ DỄ CHỊU",
+      "price": "450.000đ",
+      "img": "./images/yonex_65z4.jpg",
+      "link": "https://s.shopee.vn/3g299WQBEX"
+    },
+    {
+      "id": "bg-2",
+      "name": "VỢT LI-NING HALBERTEC 9000",
+      "price": "890.000đ",
+      "img": "./images/astrox_77_pro.jpg",
+      "link": "https://s.shopee.vn/9KgVvXztMC"
+    }
+  ]
+}
