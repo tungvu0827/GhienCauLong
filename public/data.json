@@ -35,7 +35,7 @@
         },
         {
           "type": "GIÀY",
-          "name": "Yonex SHB SC6 LDEX White/Blue",
+          "name": "Yonex Power Cushion 65Z3",
           "img": "./images/giaylindan.jfif",
           "link": "https://s.shopee.vn/8plZcRDcuH"
         },
@@ -69,7 +69,7 @@
         {
           "type": "VỢT",
           "name": "Yonex Nanoflare 1000Z Lightning Yellow 4U G5 — Head Light, Extra Stiff",
-          "img": "./images/astrox_77_pro.jpg",
+          "img": "./images/votlcw.jfif",
           "link": "https://s.shopee.vn/8AUYX9SOZX"
         },
         {
@@ -96,6 +96,51 @@
         "4 Vô địch All England (All England Open)",
         "349 tuần Số 1 Thế giới",
         "46 Danh hiệu Superseries"
+      ]
+    },
+    {
+      "id": "kento-momota",
+      "name": "KENTO MOMOTA",
+      "country": "NHẬT BẢN",
+      "flag": "🇯🇵",
+      "birthplace": "Mino, Kagawa",
+      "birthyear": "1994.09.01",
+      "portrait": "./images/momota-profile.jpg",
+      "height": "175 cm",
+      "weight": "68 kg",
+      "shoesize": "41.5",
+      "tension": "~33/35 lbs",
+      "gear": [
+        {
+          "type": "VỢT",
+          "name": "Yonex Astrox 99 Pro White Tiger 3U/4U, Nặng đầu, Siêu cứng",
+          "img": "./images/votmmt.jfif",
+          "link": "https://s.shopee.vn/AUtna6G601 "
+        },
+        {
+          "type": "GIÀY",
+          "name": "Yonex Power Cushion 65Z3 Momota White Tiger",
+          "img": "./images/giaymmt.jfif",
+          "link": "https://s.shopee.vn/30nmekGD7x "
+        },
+        {
+          "type": "CƯỚC",
+          "name": "Yonex Aerobite Hybrid 0.67mm/0.61mm",
+          "img": "./images/cuocmmt.jfif",
+          "link": "https://s.shopee.vn/8AVvAm0RXg "
+        },
+        {
+          "type": "CUỐN CÁN",
+          "name": "Yonex Super Grap AC102EX Yellow",
+          "img": "./images/cuonvotmmt.jfif",
+          "link": "https://s.shopee.vn/gPrsali7j"
+        }
+      ],
+      "achievements": [
+        "2 Lần Vô địch Thế giới (BWF World Championships)",
+        "2 Lần Vô địch All England (All England Open)",
+        "HCV Đội nam ASIAD (Asian Games Team)",
+        "Career High #1 Đơn nam Thế giới"
       ]
     },
     {
@@ -129,34 +174,8 @@
           "img": "./images/bg80_white.jpg",
           "link": "https://s.shopee.vn/8AUhPtfAw7"
         }
-      ]
-    },
-    {
-      "id": "kento-momota",
-      "name": "KENTO MOMOTA",
-      "country": "NHẬT BẢN",
-      "flag": "🇯🇵",
-      "birthplace": "Kagawa",
-      "birthyear": "1994.09.01",
-      "portrait": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&auto=format&fit=crop&q=80",
-      "height": "175 cm",
-      "weight": "68 kg",
-      "shoesize": "41.5",
-      "tension": "27/29 lbs",
-      "gear": [
-        {
-          "type": "VỢT",
-          "name": "YONEX ASTROX 99 PRO",
-          "img": "./images/astrox_77_pro.jpg",
-          "link": "https://s.shopee.vn/70Ib9DDuAl"
-        },
-        {
-          "type": "GIÀY",
-          "name": "YONEX POWER CUSHION 65Z4",
-          "img": "./images/yonex_65z4.jpg",
-          "link": "https://s.shopee.vn/BT5MHciyY"
-        }
-      ]
+      ],
+      "achievements": []
     },
     {
       "id": "kevin-sanjaya",
