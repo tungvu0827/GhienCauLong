@@ -13,7 +13,7 @@
       "name": "LIN DAN",
       "country": "TRUNG QUỐC",
       "flag": "CN",
-      "birthplace": "Longyan, China",
+      "birthplace": "LONGYAN, FUJIAN, CHINA",
       "birthyear": "1983.10.14",
       "portrait": "./images/lindan-profile.jpg",
       "height": "178 cm",
@@ -21,75 +21,81 @@
       "shoesize": "43",
       "tension": "29/31 lbs",
       "achievements": [
-        "Huy chương Bạc Olympic Paris 2024 (Đôi nam nữ)",
-        "Huy chương Bạc ASIAD 19 (Đôi nam)",
-        "Vô địch Đức Mở rộng (German Open)",
-        "Huy chương Vàng Sudirman Cup cùng Hàn Quốc"
+        "HCV Olympic Bắc Kinh 2008 (Olympic Games)",
+        "HCV Olympic London 2012 (Olympic Games)",
+        "5 lần Vô địch Thế giới (BWF World Championships)",
+        "2 lần Vô địch All England (All England Open)"
       ],
       "gear": [
         {
           "type": "VỢT",
-          "name": "Yonex Astrox 88D Pro",
-          "img": "./images/vot-yonex-astrox-88d-pro-lindan.jpg",
+          "name": "Yonex ASTROX 88D PRO Black/Silver 3U G5 — Head Heavy, Stiff",
+          "img": "./images/votlindan.jfif",
           "link": " https://s.shopee.vn/5foXqFinrT"
         },
         {
           "type": "GIÀY",
-          "name": "YONEX POWER CUSHION 65Z4",
-          "img": "./images/yonex_65z4.jpg",
-          "link": "https://s.shopee.vn/6pzzIF316o"
+          "name": "Yonex SHB SC6 LDEX White/Blue",
+          "img": "./images/giaylindan.jfif",
+          "link": "https://s.shopee.vn/8plZcRDcuH"
         },
         {
           "type": "CƯỚC",
-          "name": "YONEX BG 80 (WHITE)",
+          "name": "Yonex BG80 White",
           "img": "./images/bg80_white.jpg",
-          "link": "https://s.shopee.vn/8AUhPtfAw7"
+          "link": "https://s.shopee.vn/50Yr3JGhGX"
         },
         {
           "type": "CUỐN CÁN",
-          "name": "YONEX AC 402DX (YELLOW)",
+          "name": "Yonex Super Grap AC102EX Yellow",
           "img": "./images/grip_ac402dx.jpg",
-          "link": "https://s.shopee.vn/5VTwF7qUlw"
+          "link": "https://s.shopee.vn/112iI8iwUZ "
         }
       ]
     },
     {
       "id": "kim-won-ho",
-      "name": "KIM WON HO",
-      "country": "SOUTH KOREA",
-      "flag": "🇰🇷",
-      "birthplace": "Suwon, South Korea",
-      "birthyear": "1999.06.02",
-      "portrait": "./images/kim_won_ho.jpg",
-      "height": "184 cm",
-      "weight": "78 kg",
-      "shoesize": "43",
-      "tension": "29/31 lbs",
+      "name": "LEE CHONG WEI",
+      "country": "MALAYSIA",
+      "flag": "MY",
+      "birthplace": "BUKIT MERTAJAM, PENANG",
+      "birthyear": "1982.10.21",
+      "portrait": "./images/lcw-profile.jpg",
+      "height": "172 cm",
+      "weight": "68 kg",
+      "shoesize": "42",
+      "tension": "30/32 lbs",
       "gear": [
         {
           "type": "VỢT",
-          "name": "YONEX ASTROX 77 PRO (HIGH ORANGE) 3UG5",
+          "name": "Yonex Nanoflare 1000Z Lightning Yellow 4U G5 — Head Light, Extra Stiff",
           "img": "./images/astrox_77_pro.jpg",
           "link": "https://s.shopee.vn/8AUYX9SOZX"
         },
         {
           "type": "GIÀY",
-          "name": "YONEX POWER CUSHION 65Z4",
-          "img": "./images/yonex_65z4.jpg",
-          "link": "https://s.shopee.vn/6pzzIF316o"
+          "name": "Yonex Aerus 2 Red Power Cushion — Siêu nhẹ",
+          "img": "./images/giaylcw.jfif",
+          "link": "https://s.shopee.vn/40gM9zFPLk"
         },
         {
           "type": "CƯỚC",
-          "name": "YONEX BG 80 (WHITE)",
-          "img": "./images/bg80_white.jpg",
-          "link": "https://s.shopee.vn/8AUhPtfAw7"
+          "name": "Yonex BG66 Ultimax",
+          "img": "./images/cuoclcw.jfif",
+          "link": "https://s.shopee.vn/AUtncJLjS8"
         },
         {
           "type": "CUỐN CÁN",
-          "name": "YONEX AC 402DX (YELLOW)",
-          "img": "./images/grip_ac402dx.jpg",
-          "link": "https://s.shopee.vn/5VTwF7qUlw"
+          "name": "Yonex Super Grap AC102EX Yellow",
+          "img": "./images/cuonvotlcw.jfif",
+          "link": "https://s.shopee.vn/40gJsTrH2P "
         }
+      ],
+      "achievements": [
+        "3 HCB Olympic (Olympic Games)",
+        "4 Vô địch All England (All England Open)",
+        "349 tuần Số 1 Thế giới",
+        "46 Danh hiệu Superseries"
       ]
     },
     {
