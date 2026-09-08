@@ -185,6 +185,46 @@
         "HCĐ OLYMPIC PARIS 2024 — THÀNH TÍCH",
         "#2 THẾ GIỚI (2022) — CAREER HIGH ĐƠN NAM — NỘI DUNG"
       ]
+    },
+    {
+      "id": "vdv-1788851850140",
+      "name": "VIKTOR AXELSEN",
+      "country": "DENMARK",
+      "flag": "DK",
+      "birthplace": "Odense, Denmark",
+      "birthyear": "02/01/1994",
+      "portrait": "./images/viktoraxelsen-profile.jpg",
+      "height": "194 cm",
+      "weight": "88 kg",
+      "shoesize": "44",
+      "tension": "31 lbs",
+      "achievements": [],
+      "gear": [
+        {
+          "type": "VỢT",
+          "name": "Yonex ASTROX 100VA ZZ 4U/G5",
+          "img": "./images/votdaide.jfif",
+          "link": "https://s.shopee.vn/1LfbGCevk6"
+        },
+        {
+          "type": "GIÀY",
+          "name": "Yonex Power Cushion 65Z4 VA",
+          "img": "./images/giaydaide.jfif",
+          "link": "https://s.shopee.vn/2gAyqo1Uvk"
+        },
+        {
+          "type": "CƯỚC",
+          "name": "Yonex BG80 0.68mm",
+          "img": "./images/cuocdaide.jfif",
+          "link": "https://s.shopee.vn/5VVAE65jzM "
+        },
+        {
+          "type": "CUỐN CÁN",
+          "name": "Yonex Super Grap AC102EX Yellow",
+          "img": "./images/quancandaide.jfif",
+          "link": "https://s.shopee.vn/7fZeo8Fjfb"
+        }
+      ]
     }
   ],
   "bestsellers": [
