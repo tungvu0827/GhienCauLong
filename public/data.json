@@ -20,6 +20,12 @@
       "weight": "70 kg",
       "shoesize": "43",
       "tension": "29/31 lbs",
+      "achievements": [
+        "Huy chương Bạc Olympic Paris 2024 (Đôi nam nữ)",
+        "Huy chương Bạc ASIAD 19 (Đôi nam)",
+        "Vô địch Đức Mở rộng (German Open)",
+        "Huy chương Vàng Sudirman Cup cùng Hàn Quốc"
+      ],
       "gear": [
         {
           "type": "VỢT",
