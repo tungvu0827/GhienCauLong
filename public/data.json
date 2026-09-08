@@ -223,18 +223,32 @@
   ],
   "beginners": [
     {
+      "id": "bg-1788842533418",
+      "name": "GIÀY ASIA (CÀY SÂN BÊ TÔNG, SÂN NGOÀI TRỜI BAO BỀN, KHÔNG XÓT VÍ)",
+      "price": "150.000đ",
+      "img": "./images/giayasia.webp",
+      "link": "https://s.shopee.vn/4qFTFVyMFX"
+    },
+    {
+      "id": "bg-1788842453526",
+      "name": "QUẤN CÁN YONEX (PHỤ KIỆN BẮT BUỘC PHẢI CÓ — SIÊU BÁM TAY, CHỐNG TUỘT VỢT)",
+      "price": "10.000đ",
+      "img": "./images/quancanyonex.webp",
+      "link": "https://s.shopee.vn/9V1Io2U7kC"
+    },
+    {
       "id": "bg-1",
-      "name": "GIÀY CẦU LÔNG TẦM GIÁ DỄ CHỊU",
-      "price": "450.000đ",
-      "img": "./images/yonex_65z4.jpg",
-      "link": "https://s.shopee.vn/3g299WQBEX"
+      "name": "GIÀY MIRA (BẢN NÂNG CẤP CHO AE ĐÁNH SÂN THẢM — ÊM CHÂN, CHỐNG LẬT SƠ MI TỐT)",
+      "price": "396.000đ",
+      "img": "./images/giaymira.jpg",
+      "link": "https://s.shopee.vn/7fZecn8A1E"
     },
     {
       "id": "bg-2",
-      "name": "VỢT LI-NING HALBERTEC 9000",
-      "price": "890.000đ",
-      "img": "./images/astrox_77_pro.jpg",
-      "link": "https://s.shopee.vn/9KgVvXztMC"
+      "name": "VỢT KUMPOO (VỢT QUỐC DÂN CHO NGƯỜI MỚI — TRỢ LỰC PHÔNG CẦU TỐT, CỰC KỲ DỄ ĐÁNH)",
+      "price": "500.000đ",
+      "img": "./images/votkumpoo.jpg",
+      "link": "https://s.shopee.vn/1Vz1HGiSUS"
     }
   ]
 }
