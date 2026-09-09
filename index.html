@@ -546,6 +546,60 @@
       display: flex;
       flex-direction: column;
       gap: 8px;
+      transition: all 0.2s ease;
+    }
+
+    .athlete-see-all-card:hover {
+      border-color: var(--accent-lime);
+      color: var(--accent-lime);
+      background: rgba(34, 197, 94, 0.06);
+    }
+
+    /* LƯỚI TOÀN BỘ TUYỂN THỦ */
+    .all-athletes-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+      padding-bottom: 60px;
+    }
+
+    @media (min-width: 640px) {
+      .all-athletes-grid {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 16px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .all-athletes-grid {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 20px;
+      }
+    }
+
+    .athlete-grid-card {
+      width: 100%;
+      aspect-ratio: 3/4;
+      border-radius: 16px;
+      overflow: hidden;
+      position: relative;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      cursor: pointer;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .athlete-grid-card:hover {
+      transform: translateY(-4px);
+      border-color: var(--accent-lime);
+      box-shadow: 0 10px 24px rgba(34, 197, 94, 0.16);
+    }
+
+    .athlete-grid-card:hover img {
+      transform: scale(1.05);
     }
 
     /* Nút mũi tên máy tính cho băng tuyển thủ */
@@ -2082,9 +2136,15 @@
 
       <!-- b. BĂNG ẢNH TUYỂN THỦ — CUỘN NGANG (KHỐI QUAN TRỌNG NHẤT) -->
       <section class="section-block" id="athletes-section">
-        <div class="section-header">
-          <h2 class="section-title">ĐỒ NGHỀ TUYỂN THỦ</h2>
-          <span class="section-hint">Vuốt ngang <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></span>
+        <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+          <h2 class="section-title" style="margin-bottom:0;">ĐỒ NGHỀ TUYỂN THỦ</h2>
+          
+          <!-- Ô TÌM KIẾM VẬN ĐỘNG VIÊN TRỰC TIẾP -->
+          <div class="athlete-tape-search-box" style="position:relative; width:100%; max-width:240px; flex:1 1 180px;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.2" style="position:absolute; left:12px; top:50%; transform:translateY(-50%); pointer-events:none;"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+            <input type="text" id="athlete-tape-search" placeholder="Tìm tên tuyển thủ..." aria-label="Tìm kiếm tuyển thủ" style="width:100%; height:34px; background:#111620; border:1px solid var(--border); border-radius:999px; padding:0 30px 0 32px; color:#fff; font-size:12.5px; outline:none; transition:all 0.2s;" onfocus="this.style.borderColor='var(--accent-lime)'; this.style.boxShadow='0 0 0 2px rgba(34,197,94,0.15)'" onblur="this.style.borderColor='var(--border)'; this.style.boxShadow='none'" />
+            <button id="athlete-tape-search-clear" type="button" onclick="clearAthleteTapeSearch()" style="display:none; position:absolute; right:10px; top:50%; transform:translateY(-50%); background:none; border:none; color:#94a3b8; cursor:pointer; padding:2px; font-size:13px; line-height:1;" aria-label="Xóa tìm kiếm">✕</button>
+          </div>
         </div>
 
         <div class="tape-wrapper">
@@ -2100,6 +2160,17 @@
           <button class="nav-arrow-btn nav-arrow-next" id="tape-next-btn" aria-label="Cuộn tiếp theo">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
           </button>
+        </div>
+
+        <!-- Dòng chữ nhỏ nhắc người dùng kéo ngang để xem thêm tuyển thủ -->
+        <div class="athlete-tape-footnote" style="display:flex; justify-content:space-between; align-items:center; margin-top:8px; padding:0 4px; font-size:11.5px; color:#64748B; flex-wrap:wrap; gap:6px;">
+          <span style="display:flex; align-items:center; gap:6px;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--accent-lime)" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <span>Kéo ngang để xem thêm nhiều vận động viên khác</span>
+          </span>
+          <span onclick="openAllAthletes()" role="button" tabindex="0" style="color:var(--accent-lime); font-weight:700; cursor:pointer; display:inline-flex; align-items:center; gap:3px;">
+            Xem tất cả danh sách &rarr;
+          </span>
         </div>
       </section>
 
@@ -2145,15 +2216,60 @@
   <section id="screen-detail" class="view-screen">
     <div class="container">
       
-      <div class="back-btn-row">
-        <button class="btn-back-nav" id="btn-back-home" onclick="goHome()" aria-label="Quay về trang chủ">
+      <div class="back-btn-row" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px;">
+        <button class="btn-back-nav" id="btn-back-home" onclick="handleDetailBack()" aria-label="Quay lại">
           <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
-          <span>QUAY VỀ TRANG CHỦ</span>
+          <span id="btn-back-home-text">QUAY LẠI</span>
+        </button>
+        <button type="button" class="btn-back-nav" onclick="openAllAthletes()" style="border-color:var(--border); font-size:12px; padding:6px 14px; gap:6px;">
+          <span>TẤT CẢ TUYỂN THỦ</span>
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
         </button>
       </div>
 
       <div class="athlete-detail-layout" id="athlete-detail-content">
         <!-- Render động theo VĐV được chọn -->
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================== -->
+  <!-- MÀN HÌNH 3: TẤT CẢ TUYỂN THỦ -->
+  <!-- ========================================== -->
+  <section id="screen-all-athletes" class="view-screen">
+    <div class="container">
+      
+      <div class="back-btn-row" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; flex-wrap:wrap; gap:12px;">
+        <button class="btn-back-nav" onclick="goHome()" aria-label="Quay về trang chủ">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          <span>QUAY VỀ TRANG CHỦ</span>
+        </button>
+        <span id="all-athletes-count-badge" style="background:#141B24; border:1px solid var(--border); color:var(--accent-lime); font-size:12px; font-weight:800; padding:6px 14px; border-radius:999px; letter-spacing:0.05em;">
+          TUYỂN THỦ
+        </span>
+      </div>
+
+      <div class="all-athletes-header" style="margin-bottom:20px;">
+        <h1 style="font-size:24px; font-weight:900; text-transform:uppercase; color:#fff; letter-spacing:-0.02em; display:flex; align-items:center; gap:10px;">
+          <span style="display:inline-block; width:4px; height:24px; background:var(--accent-lime); border-radius:2px;"></span>
+          TẤT CẢ TUYỂN THỦ
+        </h1>
+        <p style="font-size:13.5px; color:var(--subtext); margin-top:6px; line-height:1.5;">
+          Tra cứu toàn bộ danh sách vận động viên, đồ nghề, vợt, giày và cước thi đấu chính hãng.
+        </p>
+      </div>
+
+      <!-- Ô TÌM KIẾM NHANH -->
+      <div class="all-athletes-search-bar" style="margin-bottom:24px; position:relative;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.2" style="position:absolute; left:16px; top:50%; transform:translateY(-50%); pointer-events:none;"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" id="all-athletes-search-input" placeholder="Tìm kiếm theo tên VĐV, quốc gia, loại vợt..." style="width:100%; height:46px; background:#111620; border:1px solid var(--border); border-radius:12px; padding:0 16px 0 46px; color:#fff; font-size:14px; outline:none; transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--accent-lime)'" onblur="this.style.borderColor='var(--border)'" />
+      </div>
+
+      <!-- LƯỚI DANH SÁCH TOÀN BỘ VĐV -->
+      <div class="all-athletes-grid" id="all-athletes-grid-container">
+        <!-- Render bằng JavaScript -->
       </div>
 
     </div>
@@ -3018,6 +3134,8 @@
         renderAthleteDetail(id);
       } else if (hash === "#quantri-gcl82") {
         renderAdminLists();
+      } else if (hash === "#tat-ca-vdv" || hash === "#tuyen-thu") {
+        renderAllAthletesScreen();
       }
     }
 
@@ -3047,34 +3165,9 @@
       }
 
       // 1. Băng ảnh tuyển thủ
-      const tapeContainer = document.getElementById("athlete-tape-container");
-      if (tapeContainer && Array.isArray(appData.athletes)) {
-        let tapeHtml = "";
-        appData.athletes.forEach(ath => {
-          tapeHtml += `
-            <div class="athlete-tape-card" onclick="openAthleteDetail('${ath.id}')" role="button" tabindex="0" aria-label="Xem đồ nghề của ${ath.name}">
-              <div class="flag-badge">${ath.flag || '🏸'}</div>
-              <img src="${resolveImageUrl(ath.portrait || '')}" alt="${ath.name}" loading="lazy" onerror="handleImgError(this)" />
-              <div class="card-gradient"></div>
-              <div class="card-info">
-                <div class="tape-name">${ath.name}</div>
-                <div class="tape-country">${ath.country}</div>
-              </div>
-            </div>
-          `;
-        });
-
-        // Thẻ cuối cùng: Xem tất cả
-        tapeHtml += `
-          <div class="athlete-tape-card athlete-see-all-card" onclick="openAthleteDetail('${appData.athletes[0]?.id || ''}')" role="button" tabindex="0">
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            <span>XEM TẤT CẢ</span>
-          </div>
-        `;
-
-        tapeContainer.innerHTML = tapeHtml;
-        updateTapeNavArrows();
-      }
+      const tapeSearchInput = document.getElementById("athlete-tape-search");
+      const currentQuery = tapeSearchInput ? tapeSearchInput.value : '';
+      renderAthleteTape(currentQuery);
 
       // 2. Khối Anh em mua nhiều nhất
       const bestsellersContainer = document.getElementById("bestsellers-container");
@@ -3308,8 +3401,168 @@
       }
     }
 
+    let previousRouteBeforeDetail = '';
+
+    function openAllAthletes() {
+      switchRoute('#tat-ca-vdv');
+    }
+    window.openAllAthletes = openAllAthletes;
+
     function openAthleteDetail(id) {
+      previousRouteBeforeDetail = window.location.hash || '';
       switchRoute('#vdv/' + id);
+    }
+    window.openAthleteDetail = openAthleteDetail;
+
+    function handleDetailBack() {
+      if (previousRouteBeforeDetail === '#tat-ca-vdv' || previousRouteBeforeDetail === '#tuyen-thu') {
+        switchRoute('#tat-ca-vdv');
+      } else {
+        goHome();
+      }
+    }
+    window.handleDetailBack = handleDetailBack;
+
+    // Xóa tìm kiếm nhanh trên băng VĐV
+    function clearAthleteTapeSearch() {
+      const searchInput = document.getElementById("athlete-tape-search");
+      const clearBtn = document.getElementById("athlete-tape-search-clear");
+      if (searchInput) {
+        searchInput.value = '';
+        searchInput.focus();
+      }
+      if (clearBtn) clearBtn.style.display = 'none';
+      renderAthleteTape('');
+    }
+    window.clearAthleteTapeSearch = clearAthleteTapeSearch;
+
+    // Render Băng ảnh Tuyển thủ trang chủ (hỗ trợ tìm kiếm trực tiếp)
+    function renderAthleteTape(searchTerm = '') {
+      const tapeContainer = document.getElementById("athlete-tape-container");
+      if (!tapeContainer || !appData || !Array.isArray(appData.athletes)) return;
+
+      const query = (searchTerm || '').trim().toLowerCase();
+      const filtered = appData.athletes.filter(ath => {
+        if (!query) return true;
+        const nameMatch = (ath.name || '').toLowerCase().includes(query);
+        const countryMatch = (ath.country || '').toLowerCase().includes(query);
+        const gearMatch = (ath.gear || []).some(g => (g.name || '').toLowerCase().includes(query));
+        return nameMatch || countryMatch || gearMatch;
+      });
+
+      if (filtered.length === 0) {
+        tapeContainer.innerHTML = `
+          <div style="min-width: 280px; padding: 28px 20px; background: var(--card-bg); border: 1px dashed var(--border); border-radius: 16px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; gap: 8px;">
+            <span style="font-size: 26px;">🏸</span>
+            <div style="font-size: 13.5px; font-weight: 700; color: #fff;">Không tìm thấy VĐV "${searchTerm}"</div>
+            <button type="button" onclick="clearAthleteTapeSearch()" style="background: rgba(34,197,94,0.15); border: 1px solid var(--accent-lime); color: var(--accent-lime); font-size: 11.5px; font-weight: 700; padding: 6px 14px; border-radius: 999px; cursor: pointer; margin-top: 4px;">Hiện tất cả VĐV</button>
+          </div>
+        `;
+        updateTapeNavArrows();
+        return;
+      }
+
+      let tapeHtml = "";
+      filtered.forEach(ath => {
+        tapeHtml += `
+          <div class="athlete-tape-card" onclick="openAthleteDetail('${ath.id}')" role="button" tabindex="0" aria-label="Xem đồ nghề của ${ath.name}">
+            <div class="flag-badge">${ath.flag || '🏸'}</div>
+            <img src="${resolveImageUrl(ath.portrait || '')}" alt="${ath.name}" loading="lazy" onerror="handleImgError(this)" />
+            <div class="card-gradient"></div>
+            <div class="card-info">
+              <div class="tape-name">${ath.name}</div>
+              <div class="tape-country">${ath.country}</div>
+            </div>
+          </div>
+        `;
+      });
+
+      // Thẻ cuối cùng: Xem tất cả
+      tapeHtml += `
+        <div class="athlete-tape-card athlete-see-all-card" onclick="openAllAthletes()" role="button" tabindex="0" aria-label="Xem toàn bộ tuyển thủ">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          <span>XEM TẤT CẢ</span>
+        </div>
+      `;
+
+      tapeContainer.innerHTML = tapeHtml;
+      updateTapeNavArrows();
+    }
+    window.renderAthleteTape = renderAthleteTape;
+
+    // Render Màn hình: Tất cả Tuyển thủ
+    function renderAllAthletesScreen(searchTerm = '') {
+      if (!appData || !Array.isArray(appData.athletes)) return;
+      const gridContainer = document.getElementById('all-athletes-grid-container');
+      const countBadge = document.getElementById('all-athletes-count-badge');
+      if (!gridContainer) return;
+
+      const query = (searchTerm || '').trim().toLowerCase();
+      const filtered = appData.athletes.filter(ath => {
+        if (!query) return true;
+        const nameMatch = (ath.name || '').toLowerCase().includes(query);
+        const countryMatch = (ath.country || '').toLowerCase().includes(query);
+        const gearMatch = (ath.gear || []).some(g => (g.name || '').toLowerCase().includes(query));
+        return nameMatch || countryMatch || gearMatch;
+      });
+
+      if (countBadge) {
+        countBadge.textContent = `${appData.athletes.length} TUYỂN THỦ`;
+      }
+
+      if (filtered.length === 0) {
+        gridContainer.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 48px 16px; background: var(--card-bg); border: 1px dashed var(--border); border-radius: 16px;">
+            <div style="font-size: 32px; margin-bottom: 10px;">🏸</div>
+            <div style="font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 6px;">Không tìm thấy tuyển thủ nào</div>
+            <div style="font-size: 13px; color: var(--subtext);">Thử tìm kiếm với từ khóa khác (ví dụ: Axelsen, Korea, Yonex...)</div>
+          </div>
+        `;
+        return;
+      }
+
+      gridContainer.innerHTML = filtered.map(ath => `
+        <div class="athlete-tape-card athlete-grid-card" onclick="openAthleteDetail('${ath.id}')" role="button" tabindex="0" aria-label="Xem đồ nghề của ${ath.name}">
+          <div class="flag-badge">${ath.flag || '🏸'}</div>
+          <img src="${resolveImageUrl(ath.portrait || '')}" alt="${ath.name}" loading="lazy" onerror="handleImgError(this)" />
+          <div class="card-gradient"></div>
+          <div class="card-info">
+            <div class="tape-name">${ath.name}</div>
+            <div class="tape-country">${ath.country || ''} &bull; ${(ath.gear || []).length} món đồ</div>
+          </div>
+        </div>
+      `).join('');
+    }
+    window.renderAllAthletesScreen = renderAllAthletesScreen;
+
+    const allAthSearchInput = document.getElementById('all-athletes-search-input');
+    if (allAthSearchInput) {
+      allAthSearchInput.addEventListener('input', (e) => {
+        renderAllAthletesScreen(e.target.value);
+      });
+    }
+
+    const tapeSearchInput = document.getElementById('athlete-tape-search');
+    if (tapeSearchInput) {
+      tapeSearchInput.addEventListener('input', (e) => {
+        const val = e.target.value;
+        const clearBtn = document.getElementById('athlete-tape-search-clear');
+        if (clearBtn) {
+          clearBtn.style.display = val.trim() ? 'block' : 'none';
+        }
+        renderAthleteTape(val);
+      });
+      tapeSearchInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          const val = e.target.value.trim();
+          if (val) {
+            const allSearch = document.getElementById('all-athletes-search-input');
+            if (allSearch) allSearch.value = val;
+            openAllAthletes();
+            setTimeout(() => renderAllAthletesScreen(val), 50);
+          }
+        }
+      });
     }
 
     function handleHashChange() {
@@ -3332,6 +3585,13 @@
         document.getElementById('screen-admin').classList.add('active');
         renderAdminAuthView();
         window.scrollTo({ top: 0, behavior: 'instant' });
+      } else if (hash === '#tat-ca-vdv' || hash === '#tuyen-thu') {
+        const allAthScreen = document.getElementById('screen-all-athletes');
+        if (allAthScreen) allAthScreen.classList.add('active');
+        if (appData) {
+          renderAllAthletesScreen();
+        }
+        window.scrollTo({ top: 0, behavior: 'instant' });
       } else {
         document.getElementById('screen-home').classList.add('active');
         if (appData) {
@@ -3343,12 +3603,12 @@
 
     window.addEventListener('hashchange', handleHashChange);
 
-    // Nút back trên màn hình chi tiết VĐV: quay về trang chủ ngay lập tức
+    // Nút back trên màn hình chi tiết VĐV: quay lại màn hình trước đó
     const backHomeBtn = document.getElementById('btn-back-home');
     if (backHomeBtn) {
       backHomeBtn.addEventListener('click', (e) => {
         e.preventDefault();
-        goHome();
+        handleDetailBack();
       });
     }
 

@@ -279,6 +279,55 @@
           "imgZoom": 1
         }
       ]
+    },
+    {
+      "id": "vdv-1788940090706",
+      "name": "An Se Young",
+      "country": "HÀN QUỐC",
+      "flag": "KR",
+      "birthplace": "GWANGJU, SOUTH KOREA",
+      "birthyear": "2002.02.05",
+      "portrait": "./images/anseyoung-profile.jpg",
+      "height": "170 cm",
+      "weight": "56 kg",
+      "shoesize": "40",
+      "tension": "28/29 lbs",
+      "achievements": [
+        "Số 1 Thế Giới Đơn Nữ Hiện Tại",
+        "HCV Olympic Paris 2024 (Olympic Games)",
+        "Vô địch Thế giới 2023 (BWF World Championships)",
+        "Vô địch All England 2025"
+      ],
+      "gear": [
+        {
+          "type": "VỢT",
+          "name": "Yonex ASTROX 77 PRO High Orange 4U G5 — Medium Stiff, Head Heavy",
+          "img": "./images/votanseyoung.jfif",
+          "link": "https://s.shopee.vn/3Vk7SksUg2 ",
+          "imgZoom": 1
+        },
+        {
+          "type": "GIÀY",
+          "name": "Yonex Power Cushion AERUS Z Women 2nd Generation — Feather Light",
+          "img": "./images/giay-anseyoung.jfif",
+          "link": " https://s.shopee.vn/7pt6cpzZGI ",
+          "imgZoom": 1
+        },
+        {
+          "type": "CƯỚC",
+          "name": "Yonex BG80 Power 0.68mm — Hard Feeling",
+          "img": "./images/cuocanseyoung.jfif",
+          "link": "",
+          "imgZoom": 1
+        },
+        {
+          "type": "CUỐN CÁN",
+          "name": "Yonex Super Grap AC102EX Yellow",
+          "img": "./images/quancananseyoung.jfif",
+          "link": "https://s.shopee.vn/3g3XfIXZNh",
+          "imgZoom": 1
+        }
+      ]
     }
   ],
   "bestsellers": [
