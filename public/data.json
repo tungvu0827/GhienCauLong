@@ -51,7 +51,9 @@
           "img": "./images/grip_ac402dx.jpg",
           "link": "https://s.shopee.vn/112iI8iwUZ "
         }
-      ]
+      ],
+      "category": "Đánh đơn",
+      "discipline": ""
     },
     {
       "id": "kim-won-ho",
@@ -96,7 +98,9 @@
         "4 Vô địch All England (All England Open)",
         "349 tuần Số 1 Thế giới",
         "46 Danh hiệu Superseries"
-      ]
+      ],
+      "category": "Đánh đơn",
+      "discipline": ""
     },
     {
       "id": "kento-momota",
@@ -141,7 +145,9 @@
         "2 Lần Vô địch All England (All England Open)",
         "HCV Đội nam ASIAD (Asian Games Team)",
         "Career High #1 Đơn nam Thế giới"
-      ]
+      ],
+      "category": "Đánh đơn",
+      "discipline": ""
     },
     {
       "id": "viktor-axelsen",
@@ -184,7 +190,9 @@
       "achievements": [
         "HCĐ OLYMPIC PARIS 2024 — THÀNH TÍCH",
         "#2 THẾ GIỚI (2022) — CAREER HIGH ĐƠN NAM — NỘI DUNG"
-      ]
+      ],
+      "category": "Đánh đơn",
+      "discipline": ""
     },
     {
       "id": "vdv-1788851850140",
@@ -229,11 +237,13 @@
           "img": "./images/quancandaide.jfif",
           "link": "https://s.shopee.vn/7fZeo8Fjfb"
         }
-      ]
+      ],
+      "category": "Đánh đơn",
+      "discipline": ""
     },
     {
       "id": "vdv-1788937313142",
-      "name": "Shi Yu Qi",
+      "name": "SHI YU QI",
       "country": "TRUNG QUỐC",
       "flag": "CN",
       "birthplace": "NANTONG, JIANGSU, CHINA",
@@ -278,7 +288,9 @@
           "link": "https://s.shopee.vn/6VNj0TovTi",
           "imgZoom": 1
         }
-      ]
+      ],
+      "category": "Đánh đơn",
+      "discipline": ""
     },
     {
       "id": "vdv-1788940090706",
@@ -327,7 +339,9 @@
           "link": "https://s.shopee.vn/3g3XfIXZNh",
           "imgZoom": 1
         }
-      ]
+      ],
+      "category": "Đánh đơn",
+      "discipline": ""
     }
   ],
   "bestsellers": [
@@ -337,7 +351,8 @@
       "desc": "Dày dặn, chống rộp chân tuyệt đối",
       "price": "15.000đ",
       "img": "./images/tatthethaoyonex.webp",
-      "link": "https://s.shopee.vn/1Vz1P4ts9A"
+      "link": "https://s.shopee.vn/1Vz1P4ts9A",
+      "category": "Giày"
     },
     {
       "id": "bs-2",
@@ -345,7 +360,8 @@
       "desc": "Giao diện vô tri, bọc vợt siêu cute",
       "price": "80.000đ",
       "img": "./images/capybara.webp",
-      "link": "https://s.shopee.vn/7KwoMohcXh"
+      "link": "https://s.shopee.vn/7KwoMohcXh",
+      "category": "Phụ kiện"
     },
     {
       "id": "bs-3",
@@ -361,7 +377,8 @@
       "desc": "Tối giản, sạch sẽ, dễ phối đồ",
       "price": "99.000đ",
       "img": "./images/aocaulong-badwear3.webp",
-      "link": "https://s.shopee.vn/3g3VzfsChU"
+      "link": "https://s.shopee.vn/3g3VzfsChU",
+      "category": "Quần áo"
     },
     {
       "id": "bs-1788850285471",
@@ -369,7 +386,8 @@
       "desc": "Vải kim luồn siêu thấm mồ hôi, co giãn tốt",
       "price": "99.000đ",
       "img": "./images/aocaulong-badwear1.webp",
-      "link": "https://s.shopee.vn/7pt4x8lrbP"
+      "link": "https://s.shopee.vn/7pt4x8lrbP",
+      "category": "Quần áo"
     },
     {
       "id": "bs-1788850359906",
@@ -377,7 +395,8 @@
       "desc": "Họa tiết cực ngầu, vải tản nhiệt mát mẻ",
       "price": "99.000đ",
       "img": "./images/aocaulong-badwear2.webp",
-      "link": "https://s.shopee.vn/7fZekvF08x"
+      "link": "https://s.shopee.vn/7fZekvF08x",
+      "category": "Quần áo"
     },
     {
       "id": "bs-1788850460793",
@@ -385,7 +404,8 @@
       "desc": "Form to rộng rãi, đi mưa không sợ ướt vợt",
       "price": "306.000đ",
       "img": "./images/balo-yonex.webp",
-      "link": "https://s.shopee.vn/6AkqyRenEm"
+      "link": "https://s.shopee.vn/6AkqyRenEm",
+      "category": "Phụ kiện"
     }
   ],
   "beginners": [
