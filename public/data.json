@@ -198,7 +198,12 @@
       "weight": "88 kg",
       "shoesize": "44",
       "tension": "31 lbs",
-      "achievements": [],
+      "achievements": [
+        "HCV Olympic Paris 2024 (Olympic Games)",
+        "HCV Olympic Tokyo 2020 (Olympic Games)",
+        "Vô địch Thế giới 2022 (BWF World Championships)",
+        "Vô địch Thế giới 2017 (BWF World Championships)"
+      ],
       "gear": [
         {
           "type": "VỢT",
