@@ -230,6 +230,55 @@
           "link": "https://s.shopee.vn/7fZeo8Fjfb"
         }
       ]
+    },
+    {
+      "id": "vdv-1788937313142",
+      "name": "Shi Yu Qi",
+      "country": "TRUNG QUỐC",
+      "flag": "CN",
+      "birthplace": "NANTONG, JIANGSU, CHINA",
+      "birthyear": "1996.02.28",
+      "portrait": "./images/shiyuqi-profile.jpg",
+      "height": "183 cm",
+      "weight": "78 kg",
+      "shoesize": "43",
+      "tension": "30/31 lbs",
+      "achievements": [
+        "Số 1 Thế Giới Hiện tại",
+        "Vô địch All England 2018 (All England Open)",
+        "Vô địch BWF World Tour Finals",
+        "HCV Thomas Cup"
+      ],
+      "gear": [
+        {
+          "type": "VỢT",
+          "name": "Yonex ASTROX 100ZZ Kurenai 4U G5 — Head Heavy, Extra Stiff",
+          "img": "./images/votshiyuqi.jfif",
+          "link": "https://s.shopee.vn/7AdPn3zvwf",
+          "imgZoom": 1
+        },
+        {
+          "type": "GIÀY",
+          "name": "Li-Ning AYAR015-2 Invincible Ace White/Grey/Green — Signature Edition",
+          "img": "./images/giayshiyuqi.jfif",
+          "link": "https://s.shopee.vn/8pldmdSQqn",
+          "imgZoom": 1
+        },
+        {
+          "type": "CƯỚC",
+          "name": "Yonex BG80 Power 0.68mm — Hard Feeling",
+          "img": "./images/cuoc-bg80.jfif",
+          "link": "https://s.shopee.vn/8AVwzVIqxq",
+          "imgZoom": 1
+        },
+        {
+          "type": "CUỐN CÁN",
+          "name": "Yonex Super Grap AC102EX Yellow",
+          "img": "./images/quan-can-shiquyi.jfif",
+          "link": "https://s.shopee.vn/6VNj0TovTi",
+          "imgZoom": 1
+        }
+      ]
     }
   ],
   "bestsellers": [
