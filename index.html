@@ -2917,16 +2917,27 @@
 
               <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
                 <div class="form-group">
-                  <label>Phân loại (Hạng mục thi đấu)</label>
-                  <select id="f-ath-category" class="form-control">
-                    <option value="Đánh đơn">⚡ Đánh đơn (Đơn nam / Đơn nữ)</option>
-                    <option value="Đánh đôi">👥 Đánh đôi (Đôi nam / Đôi nữ / Đôi nam nữ)</option>
-                    <option value="Khác">Khác</option>
+                  <label>Phân loại (Tab lọc)</label>
+                  <select id="f-ath-category" class="form-control" onchange="handleAdminAthleteCategoryChange(this.value)">
+                    <option value="Đánh đơn">⚡ Đánh đơn</option>
+                    <option value="Đánh đôi">👥 Đánh đôi</option>
                   </select>
+                  <span style="font-size:11px; color:#94a3b8; margin-top:4px; display:block;">Cố định 2 tab: Đánh đơn & Đánh đôi</span>
                 </div>
                 <div class="form-group">
-                  <label>Chi tiết nội dung</label>
-                  <input type="text" id="f-ath-discipline" class="form-control" placeholder="Ví dụ: Đôi nam & Đôi nam nữ hoặc Đơn nam" />
+                  <label>Nội dung hiển thị trên thẻ VĐV (Badge)</label>
+                  <input type="text" id="f-ath-discipline" class="form-control" list="discipline-presets" placeholder="Ví dụ: Đơn Nam, Đơn Nữ, Đôi Nam..." />
+                  <datalist id="discipline-presets">
+                    <option value="Đơn Nam"></option>
+                    <option value="Đơn Nữ"></option>
+                    <option value="Đôi Nam"></option>
+                    <option value="Đôi Nữ"></option>
+                    <option value="Đôi Nam Nữ"></option>
+                    <option value="Đôi Nam / Nam Nữ"></option>
+                  </datalist>
+                  <div id="discipline-quick-pills" style="display:flex; flex-wrap:wrap; gap:6px; margin-top:6px;">
+                    <!-- Chọn nhanh -->
+                  </div>
                 </div>
               </div>
 
@@ -4022,9 +4033,8 @@
                   GHIỀN CẦU LÔNG &bull; PRO
                 </div>
                 <div class="athlete-pro-discipline">
-                  <span>${(athlete.category || 'Đánh đôi') === 'Đánh đơn' ? '⚡' : '👥'}</span>
-                  <span>${(athlete.category || 'ĐÁNH ĐÔI').toUpperCase()}</span>
-                  ${athlete.discipline ? `<span>&bull; ${athlete.discipline}</span>` : ''}
+                  <span>${isAthleteSingle(athlete) ? '⚡' : '👥'}</span>
+                  <span>${getAthleteDisplayBadge(athlete)}</span>
                 </div>
                 <h2 class="athlete-pro-name">${athlete.name}</h2>
                 <div class="athlete-pro-country">${athlete.country || ''}</div>
@@ -4153,11 +4163,34 @@
     // =========================================================================
     let currentAthleteCategory = 'all';
 
+    // Cố định chỉ có 2 mục phân loại: Đánh đơn & Đánh đôi (cùng tab Tất cả)
     const STANDARD_ATHLETE_CATEGORIES = [
       { id: 'all', name: 'TẤT CẢ', icon: '✨' },
       { id: 'Đánh đơn', name: 'ĐÁNH ĐƠN', icon: '⚡' },
       { id: 'Đánh đôi', name: 'ĐÁNH ĐÔI', icon: '👥' }
     ];
+
+    // Helper nhận biết VĐV thuộc Đánh đơn hay Đánh đôi
+    function isAthleteSingle(ath) {
+      if (!ath) return false;
+      const cat = (ath.category || '').toLowerCase();
+      const disc = (ath.discipline || '').toLowerCase();
+      return cat.includes('đơn') || cat === 'single' || cat === 'singles' || disc.includes('đơn');
+    }
+    window.isAthleteSingle = isAthleteSingle;
+
+    // Helper hiển thị badge chi tiết trên thẻ VĐV (Đơn Nam, Đơn Nữ, Đôi Nam, Đôi Nam / Nam Nữ,...)
+    function getAthleteDisplayBadge(ath) {
+      if (!ath) return 'ĐÁNH ĐÔI';
+      if (ath.discipline && ath.discipline.trim()) {
+        return ath.discipline.trim().toUpperCase();
+      }
+      if (isAthleteSingle(ath)) {
+        return 'ĐƠN NAM';
+      }
+      return 'ĐÔI NAM';
+    }
+    window.getAthleteDisplayBadge = getAthleteDisplayBadge;
 
     function setAthleteCategory(cat) {
       currentAthleteCategory = cat;
@@ -4203,25 +4236,19 @@
       const tabsContainer = document.getElementById("athlete-category-tabs");
       const allAthletes = appData.athletes;
 
-      // Đếm số lượng theo danh mục
-      const counts = { all: allAthletes.length };
+      // Đếm số lượng theo danh mục cố định: Tất cả, Đánh đơn, Đánh đôi
+      const counts = { all: allAthletes.length, 'Đánh đơn': 0, 'Đánh đôi': 0 };
       allAthletes.forEach(ath => {
-        const cat = ath.category || 'Đánh đôi';
-        counts[cat] = (counts[cat] || 0) + 1;
+        if (isAthleteSingle(ath)) {
+          counts['Đánh đơn'] = (counts['Đánh đơn'] || 0) + 1;
+        } else {
+          counts['Đánh đôi'] = (counts['Đánh đôi'] || 0) + 1;
+        }
       });
 
-      // Tạo các tab phân loại (Tất cả, Đánh đơn, Đánh đôi...)
+      // Tạo các tab phân loại (Cố định chỉ có: Tất cả, Đánh đơn, Đánh đôi)
       if (tabsContainer) {
-        const availableCats = new Set(allAthletes.map(a => a.category || 'Đánh đôi'));
-        const displayTabs = [...STANDARD_ATHLETE_CATEGORIES];
-
-        availableCats.forEach(cat => {
-          if (!displayTabs.some(t => t.id.toLowerCase() === cat.toLowerCase())) {
-            displayTabs.push({ id: cat, name: cat.toUpperCase(), icon: '🏸' });
-          }
-        });
-
-        tabsContainer.innerHTML = displayTabs.map(tab => {
+        tabsContainer.innerHTML = STANDARD_ATHLETE_CATEGORIES.map(tab => {
           const count = tab.id === 'all' ? allAthletes.length : (counts[tab.id] || 0);
           const isActive = currentAthleteCategory.toLowerCase() === tab.id.toLowerCase();
           return `
@@ -4240,8 +4267,10 @@
 
       const query = (searchTerm || '').trim().toLowerCase();
       const filtered = allAthletes.filter(ath => {
-        const athCat = (ath.category || 'Đánh đôi').toLowerCase();
-        if (currentAthleteCategory !== 'all' && athCat !== currentAthleteCategory.toLowerCase()) {
+        if (currentAthleteCategory === 'Đánh đơn' && !isAthleteSingle(ath)) {
+          return false;
+        }
+        if (currentAthleteCategory === 'Đánh đôi' && isAthleteSingle(ath)) {
           return false;
         }
         if (!query) return true;
@@ -4249,8 +4278,9 @@
         const countryMatch = (ath.country || '').toLowerCase().includes(query);
         const discMatch = (ath.discipline || '').toLowerCase().includes(query);
         const catMatch = (ath.category || '').toLowerCase().includes(query);
+        const badgeMatch = getAthleteDisplayBadge(ath).toLowerCase().includes(query);
         const gearMatch = (ath.gear || []).some(g => (g.name || '').toLowerCase().includes(query));
-        return nameMatch || countryMatch || discMatch || catMatch || gearMatch;
+        return nameMatch || countryMatch || discMatch || catMatch || badgeMatch || gearMatch;
       });
 
       if (filtered.length === 0) {
@@ -4275,9 +4305,9 @@
             <img src="${resolveImageUrl(ath.portrait || '')}" alt="${ath.name}" loading="lazy" onerror="handleImgError(this)" />
             <div class="card-gradient"></div>
             <div class="card-info">
-              <span class="athlete-cat-badge">${ath.category || 'Đánh đôi'}</span>
+              <span class="athlete-cat-badge">${getAthleteDisplayBadge(ath)}</span>
               <div class="tape-name">${ath.name}</div>
-              <div class="tape-country">${ath.country}${ath.discipline ? ` &bull; ${ath.discipline}` : ''}</div>
+              <div class="tape-country">${ath.country}</div>
             </div>
           </div>
         `;
@@ -4306,25 +4336,19 @@
 
       const allAthletes = appData.athletes;
 
-      // Đếm số lượng theo danh mục
-      const counts = { all: allAthletes.length };
+      // Đếm số lượng theo danh mục cố định
+      const counts = { all: allAthletes.length, 'Đánh đơn': 0, 'Đánh đôi': 0 };
       allAthletes.forEach(ath => {
-        const cat = ath.category || 'Đánh đôi';
-        counts[cat] = (counts[cat] || 0) + 1;
+        if (isAthleteSingle(ath)) {
+          counts['Đánh đơn'] = (counts['Đánh đơn'] || 0) + 1;
+        } else {
+          counts['Đánh đôi'] = (counts['Đánh đôi'] || 0) + 1;
+        }
       });
 
       // Render thanh tab danh mục cho màn hình Tất cả Tuyển thủ
       if (tabsContainer) {
-        const availableCats = new Set(allAthletes.map(a => a.category || 'Đánh đôi'));
-        const displayTabs = [...STANDARD_ATHLETE_CATEGORIES];
-
-        availableCats.forEach(cat => {
-          if (!displayTabs.some(t => t.id.toLowerCase() === cat.toLowerCase())) {
-            displayTabs.push({ id: cat, name: cat.toUpperCase(), icon: '🏸' });
-          }
-        });
-
-        tabsContainer.innerHTML = displayTabs.map(tab => {
+        tabsContainer.innerHTML = STANDARD_ATHLETE_CATEGORIES.map(tab => {
           const count = tab.id === 'all' ? allAthletes.length : (counts[tab.id] || 0);
           const isActive = currentAthleteCategory.toLowerCase() === tab.id.toLowerCase();
           return `
@@ -4343,8 +4367,10 @@
 
       const query = (searchTerm || '').trim().toLowerCase();
       const filtered = allAthletes.filter(ath => {
-        const athCat = (ath.category || 'Đánh đôi').toLowerCase();
-        if (currentAthleteCategory !== 'all' && athCat !== currentAthleteCategory.toLowerCase()) {
+        if (currentAthleteCategory === 'Đánh đơn' && !isAthleteSingle(ath)) {
+          return false;
+        }
+        if (currentAthleteCategory === 'Đánh đôi' && isAthleteSingle(ath)) {
           return false;
         }
         if (!query) return true;
@@ -4352,8 +4378,9 @@
         const countryMatch = (ath.country || '').toLowerCase().includes(query);
         const discMatch = (ath.discipline || '').toLowerCase().includes(query);
         const catMatch = (ath.category || '').toLowerCase().includes(query);
+        const badgeMatch = getAthleteDisplayBadge(ath).toLowerCase().includes(query);
         const gearMatch = (ath.gear || []).some(g => (g.name || '').toLowerCase().includes(query));
-        return nameMatch || countryMatch || discMatch || catMatch || gearMatch;
+        return nameMatch || countryMatch || discMatch || catMatch || badgeMatch || gearMatch;
       });
 
       if (countBadge) {
@@ -4378,9 +4405,9 @@
           <img src="${resolveImageUrl(ath.portrait || '')}" alt="${ath.name}" loading="lazy" onerror="handleImgError(this)" />
           <div class="card-gradient"></div>
           <div class="card-info">
-            <span class="athlete-cat-badge">${ath.category || 'Đánh đôi'}</span>
+            <span class="athlete-cat-badge">${getAthleteDisplayBadge(ath)}</span>
             <div class="tape-name">${ath.name}</div>
-            <div class="tape-country">${ath.country}${ath.discipline ? ` &bull; ${ath.discipline}` : ` &bull; ${(ath.gear || []).length} món đồ`}</div>
+            <div class="tape-country">${ath.country}</div>
           </div>
         </div>
       `).join('');
@@ -5122,7 +5149,7 @@
               <img src="${resolveImageUrl(ath.portrait || '')}" class="item-row-thumb" onerror="handleImgError(this)" />
               <div>
                 <div class="item-row-title">${ath.name} ${ath.flag || ''}</div>
-                <div class="item-row-sub">${ath.country} &bull; <span style="color:var(--accent-lime); font-weight:700;">${ath.category || 'Đánh đôi'}</span>${ath.discipline ? ` (${ath.discipline})` : ''}</div>
+                <div class="item-row-sub">${ath.country} &bull; <span style="color:var(--accent-lime); font-weight:700;">${getAthleteDisplayBadge(ath)}</span> <span style="color:#64748b; font-size:11px;">[${isAthleteSingle(ath) ? 'Đánh đơn' : 'Đánh đôi'}]</span></div>
               </div>
             </div>
             <div class="item-actions">
@@ -5241,6 +5268,62 @@
       });
     }
 
+    // =========================================================================
+    // QUẢN LÝ HUY HIỆU VĐV TRONG TRANG QUẢN TRỊ (ĐƠN NAM, ĐƠN NỮ, ĐÔI NAM...)
+    // =========================================================================
+    function renderDisciplineQuickPills(category, currentValue = '') {
+      const container = document.getElementById('discipline-quick-pills');
+      if (!container) return;
+      const isSingle = (category || '').toLowerCase().includes('đơn');
+      const presets = isSingle 
+        ? ['Đơn Nam', 'Đơn Nữ'] 
+        : ['Đôi Nam', 'Đôi Nữ', 'Đôi Nam Nữ', 'Đôi Nam / Nam Nữ'];
+      
+      const currentNorm = (currentValue || '').trim().toLowerCase();
+      container.innerHTML = presets.map(p => {
+        const isSelected = currentNorm === p.toLowerCase();
+        return `
+          <button type="button" 
+            onclick="selectDisciplinePreset('${p}')"
+            style="background: ${isSelected ? 'var(--accent-lime)' : 'rgba(255,255,255,0.06)'}; 
+                   color: ${isSelected ? '#0B0F14' : '#cbd5e1'}; 
+                   border: 1px solid ${isSelected ? 'var(--accent-lime)' : 'rgba(255,255,255,0.15)'}; 
+                   border-radius: 999px; 
+                   padding: 4px 11px; 
+                   font-size: 11px; 
+                   font-weight: 700; 
+                   cursor: pointer; 
+                   transition: all 0.15s ease;">
+            ${p}
+          </button>
+        `;
+      }).join('');
+    }
+    window.renderDisciplineQuickPills = renderDisciplineQuickPills;
+
+    function selectDisciplinePreset(val) {
+      const discInput = document.getElementById('f-ath-discipline');
+      if (discInput) {
+        discInput.value = val;
+      }
+      const catSelect = document.getElementById('f-ath-category');
+      renderDisciplineQuickPills(catSelect ? catSelect.value : 'Đánh đơn', val);
+    }
+    window.selectDisciplinePreset = selectDisciplinePreset;
+
+    function handleAdminAthleteCategoryChange(newCat) {
+      const discInput = document.getElementById('f-ath-discipline');
+      const isSingle = (newCat || '').toLowerCase().includes('đơn');
+      let currentVal = discInput ? discInput.value.trim() : '';
+      
+      if (!currentVal || (isSingle && currentVal.toLowerCase().includes('đôi')) || (!isSingle && currentVal.toLowerCase().includes('đơn'))) {
+        currentVal = isSingle ? 'Đơn Nam' : 'Đôi Nam';
+        if (discInput) discInput.value = currentVal;
+      }
+      renderDisciplineQuickPills(newCat, currentVal);
+    }
+    window.handleAdminAthleteCategoryChange = handleAdminAthleteCategoryChange;
+
     // Chọn VĐV để sửa
     function selectAthleteForEdit(idx) {
       if (!appData || !appData.athletes) return;
@@ -5262,10 +5345,15 @@
       document.getElementById('form-athlete-title').textContent = 'Sửa: ' + ath.name;
       document.getElementById('f-ath-name').value = ath.name || '';
       
+      const isSingle = isAthleteSingle(ath);
+      const athCat = isSingle ? 'Đánh đơn' : 'Đánh đôi';
       const catSelect = document.getElementById('f-ath-category');
-      if (catSelect) catSelect.value = ath.category || 'Đánh đôi';
+      if (catSelect) catSelect.value = athCat;
+
+      const athBadge = ath.discipline || (isSingle ? 'Đơn Nam' : 'Đôi Nam');
       const discInput = document.getElementById('f-ath-discipline');
-      if (discInput) discInput.value = ath.discipline || '';
+      if (discInput) discInput.value = athBadge;
+      renderDisciplineQuickPills(athCat, athBadge);
 
       document.getElementById('f-ath-country').value = ath.country || '';
       document.getElementById('f-ath-flag').value = ath.flag || '';
@@ -5496,7 +5584,7 @@
         country: "VIỆT NAM",
         flag: "🇻🇳",
         category: "Đánh đơn",
-        discipline: "Đơn nam",
+        discipline: "Đơn Nam",
         birthplace: "Hà Nội",
         birthyear: "2000",
         portrait: "",
@@ -5542,9 +5630,12 @@
         onConfirm: () => {
           ath.name = newName;
           const catEl = document.getElementById('f-ath-category');
-          if (catEl) ath.category = catEl.value.trim() || 'Đánh đôi';
+          const chosenCat = catEl ? catEl.value.trim() : 'Đánh đơn';
+          ath.category = chosenCat;
           const discEl = document.getElementById('f-ath-discipline');
-          if (discEl) ath.discipline = discEl.value.trim();
+          if (discEl) {
+            ath.discipline = discEl.value.trim() || (chosenCat === 'Đánh đơn' ? 'Đơn Nam' : 'Đôi Nam');
+          }
           ath.country = document.getElementById('f-ath-country').value.trim().toUpperCase();
           ath.flag = document.getElementById('f-ath-flag').value.trim();
           ath.birthplace = document.getElementById('f-ath-birthplace').value.trim();
@@ -5796,6 +5887,13 @@
     /* 9. KHỞI TẠO BAN ĐẦU */
     /* ========================================================================== */
     window.addEventListener('DOMContentLoaded', async () => {
+      const discInputEl = document.getElementById('f-ath-discipline');
+      if (discInputEl) {
+        discInputEl.addEventListener('input', (e) => {
+          const catSelect = document.getElementById('f-ath-category');
+          renderDisciplineQuickPills(catSelect ? catSelect.value : 'Đánh đơn', e.target.value);
+        });
+      }
       handleHashChange();
       await loadDataFromStorage();
     });
