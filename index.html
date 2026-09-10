@@ -705,9 +705,220 @@
         text-align: center;
         line-height: 1.2;
       }
+
+      /* Băng sản phẩm bán chạy trên điện thoại: 4 sản phẩm dọc (4 hàng x cuộn ngang) */
+      .bestsellers-tape {
+        display: grid !important;
+        grid-template-rows: repeat(4, auto) !important;
+        grid-auto-flow: column !important;
+        grid-auto-columns: calc(100% - 24px) !important;
+        gap: 10px !important;
+        padding-bottom: 6px;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        width: 100% !important;
+      }
+      .bestsellers-tape.single-col {
+        grid-auto-columns: 100% !important;
+      }
+      .bestsellers-tape::-webkit-scrollbar {
+        display: none;
+      }
+      .bestsellers-tape .bestseller-card {
+        padding: 9px 12px !important;
+        gap: 12px !important;
+        border-radius: 12px !important;
+        scroll-snap-align: start;
+        box-sizing: border-box;
+      }
+      .bestsellers-tape .bestseller-img-box {
+        width: 56px !important;
+        height: 56px !important;
+        border-radius: 8px !important;
+        flex-shrink: 0 !important;
+      }
+      .bestsellers-tape .bestseller-name {
+        font-size: 12.5px !important;
+      }
+      .bestsellers-tape .bestseller-desc {
+        font-size: 10.5px !important;
+      }
+      .bestsellers-tape .bestseller-price {
+        font-size: 13.5px !important;
+      }
+      .bestsellers-tape .buy-btn {
+        padding: 6px 12px !important;
+        font-size: 10.5px !important;
+        letter-spacing: 0.05em !important;
+        flex-shrink: 0 !important;
+      }
     }
 
-    /* KHỐI ANH EM MUA NHIỀU NHẤT */
+    /* KHỐI ANH EM MUA NHIỀU NHẤT — TRÊN CẢ WEB VÀ IPAD ĐỀU 2 HÀNG x 2 CỘT DỌC (RỘNG RÃI, THOÁNG ĐẸP) */
+    @media (min-width: 720px) {
+      .bestsellers-tape {
+        display: grid !important;
+        grid-template-rows: repeat(2, auto) !important;
+        grid-auto-flow: column !important;
+        grid-auto-columns: calc((100% - 14px) / 2) !important;
+        gap: 14px !important;
+        padding-bottom: 8px;
+        overflow-x: auto !important;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        width: 100% !important;
+      }
+    }
+
+    .bestsellers-tape::-webkit-scrollbar {
+      display: none;
+    }
+
+    .bestsellers-tape .bestseller-card {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      background: #141B24;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 9px 11px;
+      box-sizing: border-box;
+      scroll-snap-align: start;
+      min-width: 0;
+      transition: all 0.2s ease;
+    }
+
+    .bestsellers-tape .bestseller-card:hover {
+      border-color: rgba(215, 255, 62, 0.4);
+      background: #182230;
+      transform: translateY(-1px);
+    }
+
+    #bestsellers-tape-wrapper:not(.has-scroll) .nav-arrow-btn {
+      display: none !important;
+    }
+
+    /* Thẻ Xem tất cả dạng thường (hàng 2 khi số món lẻ) */
+    .bestseller-card.bestseller-see-all-card {
+      border: 1.5px dashed rgba(215, 255, 62, 0.45) !important;
+      background: rgba(20, 27, 36, 0.8) !important;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .bestseller-card.bestseller-see-all-card:hover {
+      border-color: var(--accent-lime) !important;
+      background: rgba(34, 197, 94, 0.12) !important;
+    }
+
+    .bestseller-see-all-card .see-all-box {
+      background: rgba(34, 197, 94, 0.12);
+      border: 1px solid rgba(34, 197, 94, 0.35);
+      color: var(--accent-lime);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 10px;
+    }
+
+    /* Thẻ Xem tất cả dạng cao (chiếm trọn 2 hàng khi số món chẵn) */
+    .bestseller-see-all-tall {
+      grid-row: 1 / span 2;
+      width: 160px;
+      min-width: 160px;
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      gap: 10px;
+      background: rgba(20, 27, 36, 0.8);
+      border: 1.5px dashed rgba(215, 255, 62, 0.45);
+      border-radius: 14px;
+      padding: 16px;
+      cursor: pointer;
+      color: var(--subtext);
+      transition: all 0.2s ease;
+      user-select: none;
+      box-sizing: border-box;
+    }
+
+    .bestseller-see-all-tall:hover {
+      border-color: var(--accent-lime);
+      background: rgba(34, 197, 94, 0.12);
+      transform: translateY(-1px);
+    }
+
+    .bestseller-see-all-tall .see-all-icon-circle {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(34, 197, 94, 0.15);
+      border: 1px solid rgba(34, 197, 94, 0.4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent-lime);
+    }
+
+    .bestseller-see-all-tall .see-all-label {
+      font-size: 11px;
+      font-weight: 800;
+      color: var(--accent-lime);
+      letter-spacing: 0.05em;
+    }
+
+    .bestseller-see-all-tall .see-all-sub {
+      font-size: 10px;
+      color: #94A3B8;
+    }
+
+    .bestseller-see-all-link-btn {
+      background: none;
+      border: none;
+      color: var(--accent-lime);
+      font-size: 11.5px;
+      font-weight: 700;
+      cursor: pointer;
+      padding: 0;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      transition: color 0.15s;
+    }
+
+    .bestseller-see-all-link-btn:hover {
+      text-decoration: underline;
+    }
+
+    /* LƯỚI TOÀN BỘ SẢN PHẨM BÁN CHẠY (MÀN HÌNH TẤT CẢ SẢN PHẨM) */
+    .all-bestsellers-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 12px;
+      padding-bottom: 60px;
+    }
+
+    @media (min-width: 640px) {
+      .all-bestsellers-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 16px;
+      }
+    }
+
+    @media (min-width: 1024px) {
+      .all-bestsellers-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 18px;
+      }
+    }
+
     .bestseller-card {
       background: var(--card-bg);
       border-radius: 14px;
@@ -717,6 +928,7 @@
       align-items: center;
       gap: 14px;
       transition: border-color 0.2s;
+      scroll-snap-align: start;
     }
 
     .bestseller-img-box {
@@ -2317,9 +2529,11 @@
 
       <!-- c. KHỐI ANH EM MUA NHIỀU NHẤT -->
       <section class="section-block" id="bestsellers-section">
-        <div class="section-header" style="flex-wrap:wrap; gap:8px;">
-          <h2 class="section-title">ANH EM MUA NHIỀU NHẤT</h2>
-          <span id="bestsellers-count-badge" style="font-size:11px; font-weight:800; color:var(--accent-lime); background:rgba(34,197,94,0.12); padding:3px 8px; border-radius:999px; letter-spacing:0.04em;">9 MÓN ĐỒ</span>
+        <div class="section-header" style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:8px;">
+          <div style="display:flex; align-items:center; gap:8px;">
+            <h2 class="section-title" style="margin-bottom:0;">ANH EM MUA NHIỀU NHẤT</h2>
+            <span id="bestsellers-count-badge" style="font-size:11px; font-weight:800; color:var(--accent-lime); background:rgba(34,197,94,0.12); padding:3px 8px; border-radius:999px; letter-spacing:0.04em;">9 MÓN ĐỒ</span>
+          </div>
         </div>
 
         <!-- Thanh phân loại danh mục (Tất cả, Phụ kiện, Giày, Quần áo, Vợt...) -->
@@ -2327,8 +2541,30 @@
           <!-- Render tự động -->
         </div>
 
-        <div class="bestsellers-grid" id="bestsellers-container">
-          <!-- Render tự động -->
+        <div class="tape-wrapper" id="bestsellers-tape-wrapper">
+          <!-- Nút cuộn máy tính (chỉ hiện trên màn hình >1080px) -->
+          <button class="nav-arrow-btn nav-arrow-prev disabled" id="bestseller-prev-btn" aria-label="Cuộn sản phẩm về trước">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M15 18l-6-6 6-6"/></svg>
+          </button>
+
+          <div class="bestsellers-tape" id="bestsellers-container">
+            <!-- Render tự động: Tối đa 8 sản phẩm trên điện thoại + thẻ XEM TẤT CẢ DANH SÁCH -->
+          </div>
+
+          <button class="nav-arrow-btn nav-arrow-next" id="bestseller-next-btn" aria-label="Cuộn sản phẩm tiếp theo">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M9 18l6-6-6-6"/></svg>
+          </button>
+        </div>
+
+        <!-- Dòng chữ nhắc người dùng kéo ngang để xem thêm sản phẩm (giống VĐV) -->
+        <div class="bestseller-tape-footnote" id="bestseller-tape-footnote" style="display:flex; justify-content:space-between; align-items:center; margin-top:8px; padding:0 4px; font-size:11.5px; color:#64748B; flex-wrap:wrap; gap:6px;">
+          <span style="display:flex; align-items:center; gap:6px;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--accent-lime)" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+            <span>Kéo ngang để xem thêm sản phẩm bán chạy</span>
+          </span>
+          <span onclick="openAllBestsellers()" role="button" tabindex="0" style="color:var(--accent-lime); font-weight:700; cursor:pointer; display:inline-flex; align-items:center; gap:3px;">
+            Xem tất cả danh sách &rarr;
+          </span>
         </div>
       </section>
 
@@ -2422,6 +2658,52 @@
 
       <!-- LƯỚI DANH SÁCH TOÀN BỘ VĐV -->
       <div class="all-athletes-grid" id="all-athletes-grid-container">
+        <!-- Render bằng JavaScript -->
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================== -->
+  <!-- MÀN HÌNH 4: TẤT CẢ SẢN PHẨM BÁN CHẠY (#tat-ca-san-pham) -->
+  <!-- ========================================== -->
+  <section id="screen-all-bestsellers" class="view-screen">
+    <div class="container">
+      
+      <div class="back-btn-row" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; flex-wrap:wrap; gap:12px;">
+        <button class="btn-back-nav" onclick="goHome()" aria-label="Quay về trang chủ">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg>
+          <span>QUAY VỀ TRANG CHỦ</span>
+        </button>
+        <span id="all-bestsellers-count-badge" style="background:#141B24; border:1px solid var(--border); color:var(--accent-lime); font-size:12px; font-weight:800; padding:6px 14px; border-radius:999px; letter-spacing:0.05em;">
+          SẢN PHẨM
+        </span>
+      </div>
+
+      <div class="all-bestsellers-header" style="margin-bottom:20px;">
+        <h1 style="font-size:24px; font-weight:900; text-transform:uppercase; color:#fff; letter-spacing:-0.02em; display:flex; align-items:center; gap:10px;">
+          <span style="display:inline-block; width:4px; height:24px; background:var(--accent-lime); border-radius:2px;"></span>
+          TẤT CẢ SẢN PHẨM BÁN CHẠY
+        </h1>
+        <p style="font-size:13.5px; color:var(--subtext); margin-top:6px; line-height:1.5;">
+          Toàn bộ danh sách phụ kiện, cước, giày, quần áo và vợt cầu lông chính hãng được anh em săn đón nhiều nhất.
+        </p>
+      </div>
+
+      <!-- Ô TÌM KIẾM NHANH SẢN PHẨM -->
+      <div class="all-bestsellers-search-bar" style="margin-bottom:16px; position:relative;">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#64748b" stroke-width="2.2" style="position:absolute; left:16px; top:50%; transform:translateY(-50%); pointer-events:none;"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+        <input type="text" id="all-bestsellers-search-input" placeholder="Tìm kiếm theo tên sản phẩm, phân loại, mức giá..." style="width:100%; height:46px; background:#111620; border:1px solid var(--border); border-radius:12px; padding:0 16px 0 46px; color:#fff; font-size:14px; outline:none; transition:border-color 0.2s;" onfocus="this.style.borderColor='var(--accent-lime)'" onblur="this.style.borderColor='var(--border)'" />
+      </div>
+
+      <!-- Thanh phân loại danh mục sản phẩm (Tất cả, Phụ kiện, Giày, Quần áo, Vợt...) -->
+      <div class="category-tabs-wrapper" id="all-bestsellers-category-tabs" role="tablist" aria-label="Phân loại tất cả sản phẩm" style="margin-bottom:20px;">
+        <!-- Render tự động -->
+      </div>
+
+      <!-- LƯỚI DANH SÁCH TOÀN BỘ SẢN PHẨM -->
+      <div class="all-bestsellers-grid" id="all-bestsellers-grid-container">
         <!-- Render bằng JavaScript -->
       </div>
 
@@ -3223,7 +3505,7 @@
       }
     };
 
-    const FALLBACK_IMG_DATA = "data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%22 height=%22100%22 viewBox=%220 0 24 24%22 fill=%22none%22 stroke=%22%234A5568%22 stroke-width=%221.5%22%3E%3Ccircle cx=%2212%22 cy=%2212%22 r=%229%22/%3E%3Cpath d=%22m8 16 8-8M16 16l-8-8%22/%3E%3C/svg%3E";
+    const FALLBACK_IMG_DATA = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24' fill='none' stroke='%23475569' stroke-width='1.5'%3E%3Crect width='18' height='18' x='3' y='3' rx='3' fill='%231E293B'/%3E%3Ccircle cx='9' cy='9' r='2' fill='%23334155'/%3E%3Cpath d='m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21'/%3E%3C/svg%3E";
 
     function getFallbackImgTag() {
       return FALLBACK_IMG_DATA;
@@ -3316,6 +3598,8 @@
         renderAdminLists();
       } else if (hash === "#tat-ca-vdv" || hash === "#tuyen-thu") {
         renderAllAthletesScreen();
+      } else if (hash === "#tat-ca-san-pham" || hash === "#san-pham" || hash === "#tat-ca-bestsellers" || hash === "#bestsellers") {
+        renderAllBestsellersScreen();
       }
     }
 
@@ -3451,6 +3735,174 @@
             <button type="button" onclick="setBestsellerCategory('all')" class="bestseller-reset-btn">Xem tất cả sản phẩm</button>
           </div>
         `;
+        if (typeof updateBestsellerNavArrows === 'function') {
+          updateBestsellerNavArrows();
+        }
+        return;
+      }
+
+      // Render trực tiếp sản phẩm vào danh sách
+      let tapeHtml = filtered.map(item => `
+        <div class="bestseller-card">
+          <div class="bestseller-img-box">
+            <img src="${resolveImageUrl(item.img || '')}" alt="${item.name}" loading="lazy" onerror="handleImgError(this)" />
+          </div>
+          <div class="bestseller-body">
+            <span class="bestseller-cat-badge">${item.category || 'Phụ kiện'}</span>
+            <div class="bestseller-name" title="${item.name}">${item.name}</div>
+            <div class="bestseller-desc" title="${item.desc || ''}">${item.desc || ''}</div>
+            <div class="bestseller-price">${item.price || ''}</div>
+          </div>
+          <a href="${item.link || '#'}" target="_blank" rel="noopener noreferrer" class="buy-btn" aria-label="Mua ${item.name}">MUA</a>
+        </div>
+      `).join('');
+
+      // Thẻ Xem tất cả ở cuối băng sản phẩm
+      tapeHtml += `
+        <div class="bestseller-card bestseller-see-all-card" onclick="openAllBestsellers()" role="button" tabindex="0" aria-label="Xem tất cả danh sách sản phẩm">
+          <div class="bestseller-img-box see-all-box">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </div>
+          <div class="bestseller-body">
+            <span class="bestseller-cat-badge" style="background:rgba(34,197,94,0.15); color:var(--accent-lime); border-color:rgba(34,197,94,0.3);">DANH SÁCH</span>
+            <div class="bestseller-name" style="color:var(--accent-lime);">XEM TẤT CẢ DANH SÁCH</div>
+            <div class="bestseller-desc">Toàn bộ ${allItems.length} món đồ hot &bull; Săn deal</div>
+            <div class="bestseller-price" style="font-size:12px; color:var(--accent-lime); font-weight:700;">Xem chi tiết &rarr;</div>
+          </div>
+          <span class="buy-btn" style="background:var(--accent-lime); color:#0B0F14; font-weight:800;">XEM</span>
+        </div>
+      `;
+
+      const hasMultiplePages = filtered.length > 4;
+      gridContainer.className = `bestsellers-tape ${hasMultiplePages ? 'multi-col' : 'single-col'}`;
+      gridContainer.innerHTML = tapeHtml;
+
+      // Cập nhật dòng chú thích chân trang
+      const footnoteEl = document.getElementById("bestseller-tape-footnote");
+      if (footnoteEl) {
+        if (filtered.length > 4) {
+          footnoteEl.innerHTML = `
+            <span style="display:flex; align-items:center; gap:6px;">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--accent-lime)" stroke-width="2.2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+              <span><strong>Kéo sang phải</strong> để xem tiếp (${filtered.length - 4} món nữa)</span>
+            </span>
+            <button type="button" class="bestseller-see-all-link-btn" onclick="openAllBestsellers()">
+              Xem tất cả danh sách &rarr;
+            </button>
+          `;
+        } else {
+          footnoteEl.innerHTML = `
+            <span style="display:flex; align-items:center; gap:6px;">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#64748B" stroke-width="2"><path d="M20 6L9 17l-5-5"/></svg>
+              <span>Hiển thị ${filtered.length} sản phẩm bán chạy</span>
+            </span>
+            <button type="button" class="bestseller-see-all-link-btn" onclick="openAllBestsellers()">
+              Xem tất cả danh sách &rarr;
+            </button>
+          `;
+        }
+      }
+
+      if (typeof updateBestsellerNavArrows === 'function') {
+        updateBestsellerNavArrows();
+      }
+    }
+    window.renderBestsellersSection = renderBestsellersSection;
+
+    // Chuyển sang màn hình xem toàn bộ sản phẩm bán chạy
+    function openAllBestsellers() {
+      window.location.hash = '#tat-ca-san-pham';
+    }
+    window.openAllBestsellers = openAllBestsellers;
+
+    function setAllBestsellersCategory(cat) {
+      currentBestsellerCategory = cat;
+      const allBsSearchInput = document.getElementById('all-bestsellers-search-input');
+      renderAllBestsellersScreen(allBsSearchInput ? allBsSearchInput.value : '');
+    }
+    window.setAllBestsellersCategory = setAllBestsellersCategory;
+
+    function resetBestsellerFilters() {
+      currentBestsellerCategory = 'all';
+      const allBsSearchInput = document.getElementById('all-bestsellers-search-input');
+      if (allBsSearchInput) allBsSearchInput.value = '';
+      renderBestsellersSection();
+      renderAllBestsellersScreen('');
+    }
+    window.resetBestsellerFilters = resetBestsellerFilters;
+
+    // Render Màn hình 4: Toàn bộ sản phẩm bán chạy
+    function renderAllBestsellersScreen(searchTerm = '') {
+      if (!appData || !Array.isArray(appData.bestsellers)) return;
+      const gridContainer = document.getElementById('all-bestsellers-grid-container');
+      const tabsContainer = document.getElementById('all-bestsellers-category-tabs');
+      const countBadge = document.getElementById('all-bestsellers-count-badge');
+      if (!gridContainer) return;
+
+      const allItems = appData.bestsellers;
+
+      // Đếm số lượng theo danh mục
+      const counts = { all: allItems.length };
+      allItems.forEach(item => {
+        const cat = item.category || 'Phụ kiện';
+        counts[cat] = (counts[cat] || 0) + 1;
+      });
+
+      // Tạo các tab phân loại
+      if (tabsContainer) {
+        const availableCats = new Set(allItems.map(i => i.category || 'Phụ kiện'));
+        const displayTabs = [...STANDARD_BESTSELLER_CATEGORIES];
+
+        availableCats.forEach(cat => {
+          if (!displayTabs.some(t => t.id.toLowerCase() === cat.toLowerCase())) {
+            displayTabs.push({ id: cat, name: cat.toUpperCase(), icon: '🏷️' });
+          }
+        });
+
+        tabsContainer.innerHTML = displayTabs.map(tab => {
+          const count = tab.id === 'all' ? allItems.length : (counts[tab.id] || 0);
+          const isActive = currentBestsellerCategory.toLowerCase() === tab.id.toLowerCase();
+          return `
+            <button type="button" 
+              class="category-pill ${isActive ? 'active' : ''}" 
+              onclick="setAllBestsellersCategory('${tab.id}')"
+              role="tab"
+              aria-selected="${isActive}">
+              <span>${tab.icon}</span>
+              <span>${tab.name}</span>
+              <span class="pill-count">${count}</span>
+            </button>
+          `;
+        }).join('');
+      }
+
+      const query = (searchTerm || '').trim().toLowerCase();
+      const filtered = allItems.filter(item => {
+        const cat = (item.category || 'Phụ kiện').toLowerCase();
+        if (currentBestsellerCategory !== 'all' && cat !== currentBestsellerCategory.toLowerCase()) {
+          return false;
+        }
+        if (!query) return true;
+        const nameMatch = (item.name || '').toLowerCase().includes(query);
+        const descMatch = (item.desc || '').toLowerCase().includes(query);
+        const priceMatch = (item.price || '').toLowerCase().includes(query);
+        const catMatch = (item.category || '').toLowerCase().includes(query);
+        return nameMatch || descMatch || priceMatch || catMatch;
+      });
+
+      if (countBadge) {
+        countBadge.textContent = `${filtered.length} / ${allItems.length} SẢN PHẨM`;
+      }
+
+      if (filtered.length === 0) {
+        gridContainer.innerHTML = `
+          <div style="grid-column: 1 / -1; text-align: center; padding: 48px 16px; background: var(--card-bg); border: 1px dashed var(--border); border-radius: 16px;">
+            <div style="font-size: 32px; margin-bottom: 10px;">🏸</div>
+            <div style="font-size: 15px; font-weight: 700; color: #fff; margin-bottom: 6px;">Không tìm thấy sản phẩm nào</div>
+            <div style="font-size: 13px; color: var(--subtext); margin-bottom: 12px;">Thử chọn danh mục khác hoặc xóa từ khóa tìm kiếm.</div>
+            <button type="button" onclick="resetBestsellerFilters()" style="background: rgba(34,197,94,0.15); border: 1px solid var(--accent-lime); color: var(--accent-lime); font-size: 12.5px; font-weight: 700; padding: 7px 18px; border-radius: 999px; cursor: pointer;">Hiện tất cả sản phẩm</button>
+          </div>
+        `;
         return;
       }
 
@@ -3467,9 +3919,9 @@
           </div>
           <a href="${item.link || '#'}" target="_blank" rel="noopener noreferrer" class="buy-btn" aria-label="Mua ${item.name}">MUA</a>
         </div>
-      `).join("");
+      `).join('');
     }
-    window.renderBestsellersSection = renderBestsellersSection;
+    window.renderAllBestsellersScreen = renderAllBestsellersScreen;
 
     // Helper lấy từ viết tắt dạng chữ dọc nghệ thuật (SEO, KIM, AXELSEN...)
     function getShortOutlineName(fullName) {
@@ -3965,6 +4417,13 @@
       });
     }
 
+    const allBsSearchInput = document.getElementById('all-bestsellers-search-input');
+    if (allBsSearchInput) {
+      allBsSearchInput.addEventListener('input', (e) => {
+        renderAllBestsellersScreen(e.target.value);
+      });
+    }
+
     function handleHashChange() {
       const hash = window.location.hash || '';
       const screens = document.querySelectorAll('.view-screen');
@@ -3990,6 +4449,13 @@
         if (allAthScreen) allAthScreen.classList.add('active');
         if (appData) {
           renderAllAthletesScreen();
+        }
+        window.scrollTo({ top: 0, behavior: 'instant' });
+      } else if (hash === '#tat-ca-san-pham' || hash === '#san-pham' || hash === '#tat-ca-bestsellers' || hash === '#bestsellers') {
+        const allBsScreen = document.getElementById('screen-all-bestsellers');
+        if (allBsScreen) allBsScreen.classList.add('active');
+        if (appData) {
+          renderAllBestsellersScreen();
         }
         window.scrollTo({ top: 0, behavior: 'instant' });
       } else {
@@ -4042,6 +4508,45 @@
     if (nextBtn) {
       nextBtn.addEventListener('click', () => {
         tapeEl.scrollBy({ left: 320, behavior: 'smooth' });
+      });
+    }
+
+    /* ========================================================================== */
+    /* 6B. NÚT CUỘN BĂNG SẢN PHẨM BÁN CHẠY TRÊN MÁY TÍNH (>1080PX) */
+    /* ========================================================================== */
+
+    const bestsellersTapeEl = document.getElementById('bestsellers-container');
+    const bsPrevBtn = document.getElementById('bestseller-prev-btn');
+    const bsNextBtn = document.getElementById('bestseller-next-btn');
+
+    function updateBestsellerNavArrows() {
+      if (!bestsellersTapeEl) return;
+      const canScroll = bestsellersTapeEl.scrollWidth > bestsellersTapeEl.clientWidth + 8;
+      const tapeWrapper = document.getElementById('bestsellers-tape-wrapper');
+      if (tapeWrapper) {
+        tapeWrapper.classList.toggle('has-scroll', canScroll);
+      }
+      const isAtStart = bestsellersTapeEl.scrollLeft <= 8;
+      const isAtEnd = bestsellersTapeEl.scrollLeft + bestsellersTapeEl.clientWidth >= bestsellersTapeEl.scrollWidth - 8;
+      
+      if (bsPrevBtn) bsPrevBtn.classList.toggle('disabled', isAtStart);
+      if (bsNextBtn) bsNextBtn.classList.toggle('disabled', isAtEnd);
+    }
+    window.updateBestsellerNavArrows = updateBestsellerNavArrows;
+
+    if (bestsellersTapeEl) {
+      bestsellersTapeEl.addEventListener('scroll', updateBestsellerNavArrows, { passive: true });
+    }
+
+    if (bsPrevBtn) {
+      bsPrevBtn.addEventListener('click', () => {
+        bestsellersTapeEl.scrollBy({ left: -(bestsellersTapeEl.clientWidth * 0.8), behavior: 'smooth' });
+      });
+    }
+
+    if (bsNextBtn) {
+      bsNextBtn.addEventListener('click', () => {
+        bestsellersTapeEl.scrollBy({ left: (bestsellersTapeEl.clientWidth * 0.8), behavior: 'smooth' });
       });
     }
 
