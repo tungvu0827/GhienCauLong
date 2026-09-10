@@ -342,6 +342,57 @@
       ],
       "category": "Đánh đơn",
       "discipline": ""
+    },
+    {
+      "id": "vdv-1789034334340",
+      "name": "SEO SEUNG JAE",
+      "country": "HÀN QUỐC",
+      "flag": "KR",
+      "category": "Đánh đôi",
+      "discipline": "Đôi Nam / Nam Nữ",
+      "birthplace": "JEONJU, SOUTH KOREA",
+      "birthyear": "1997.09.04",
+      "portrait": "./images/seo-seung-jae-profile.jfif",
+      "height": "182 cm",
+      "weight": "CHƯA XÁC MINH ĐƯỢC",
+      "shoesize": "CHƯA XÁC MINH ĐƯỢC",
+      "tension": "30 lbs",
+      "achievements": [
+        "Vô địch Thế giới 2023 Đôi nam (BWF World Championships)",
+        "Vô địch Thế giới 2023 Đôi nam nữ (BWF World Championships)",
+        "Vô địch Thế giới 2025 Đôi nam (BWF World Championships)",
+        "Vô địch All England 2025 & 2026 (All England Open)"
+      ],
+      "gear": [
+        {
+          "type": "VỢT",
+          "name": "Yonex NANOFLARE 700 PRO Midnight Purple Head Light — Medium Flex",
+          "img": "./images/votseo.webp",
+          "link": " https://s.shopee.vn/5LBnOuZrfU ",
+          "imgZoom": 1
+        },
+        {
+          "type": "GIÀY",
+          "name": "POWER CUSHION 65Z4 — White",
+          "img": "./images/giayseo.webp",
+          "link": "https://s.shopee.vn/5q83ztwbe3",
+          "imgZoom": 1
+        },
+        {
+          "type": "CƯỚC",
+          "name": "Yonex BG80 0.68mm — Hard Feeling",
+          "img": "./images/cuocseo.webp",
+          "link": " https://s.shopee.vn/9KhwAO44KN",
+          "imgZoom": 1
+        },
+        {
+          "type": "CUỐN CÁN",
+          "name": "Yonex SUPER GRAP AC102 3 Wraps",
+          "img": "./images/quancanseo.webp",
+          "link": "https://s.shopee.vn/7fZiBMIt15 ",
+          "imgZoom": 1
+        }
+      ]
     }
   ],
   "bestsellers": [
