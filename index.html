@@ -2912,7 +2912,31 @@
 
               <div class="form-group">
                 <label>Tên Vận Động Viên</label>
-                <input type="text" id="f-ath-name" class="form-control" placeholder="Ví dụ: SEO SEUNG JAE" />
+                <input type="text" id="f-ath-name" class="form-control" placeholder="Ví dụ: VIKTOR AXELSEN" />
+              </div>
+
+              <!-- ĐƯỜNG DẪN LINK / SLUG CỦA VĐV -->
+              <div class="form-group" style="background:rgba(255,255,255,0.03); border:1px solid rgba(255,255,255,0.08); border-radius:10px; padding:12px 14px; margin-bottom:16px;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+                  <label style="margin:0; font-size:12.5px; font-weight:700; color:#e2e8f0; display:flex; align-items:center; gap:6px;">
+                    <span>🔗 Đường dẫn link VĐV (Slug ID)</span>
+                  </label>
+                  <button type="button" onclick="autoGenerateCurrentAthleteSlug()" style="background:none; border:none; color:var(--accent-lime); font-size:11.5px; cursor:pointer; font-weight:700; display:flex; align-items:center; gap:3px;">
+                    ⚡ Tự động tạo theo tên
+                  </button>
+                </div>
+                <div style="display:flex; align-items:center; background:#0b1118; border:1px solid rgba(255,255,255,0.12); border-radius:8px; overflow:hidden;">
+                  <span style="padding:8px 12px; color:#64748b; font-size:12px; font-family:monospace; font-weight:600; background:rgba(255,255,255,0.03); border-right:1px solid rgba(255,255,255,0.08); white-space:nowrap;">#vdv/</span>
+                  <input type="text" id="f-ath-id" class="form-control" style="border:none; background:transparent; border-radius:0; padding:8px 10px; font-family:monospace; color:#38bdf8; font-weight:600;" placeholder="viktor-axelsen" />
+                </div>
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-top:8px; gap:8px;">
+                  <div style="font-size:11.5px; color:#94a3b8; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;">
+                    Link xem: <span id="f-ath-link-preview" style="color:var(--accent-lime); font-family:monospace; font-weight:700;">#vdv/viktor-axelsen</span>
+                  </div>
+                  <button type="button" onclick="copyAthleteLinkFromAdmin()" id="btn-copy-ath-link" style="background:rgba(56,189,248,0.1); border:1px solid rgba(56,189,248,0.3); color:#38bdf8; border-radius:6px; font-size:11px; font-weight:600; cursor:pointer; padding:3px 8px; white-space:nowrap; transition:all 0.15s;">
+                    📋 Sao chép link
+                  </button>
+                </div>
               </div>
 
               <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px;">
@@ -3242,10 +3266,129 @@
     }
 
     /* ========================================================================== */
-    /* 2. DỮ LIỆU MẪU ĐẦY ĐỦ THEO ĐỀ BÀI */
-    /* ========================================================================== */
     /* 2. DỮ LIỆU ỨNG DỤNG & CƠ CHẾ NẠP/LƯU FILE DATA.JSON                        */
     /* ========================================================================== */
+    // Tiện ích chuẩn hóa URL/Slug thân thiện cho VĐV (Ví dụ: "Viktor Axelsen" -> "viktor-axelsen")
+    function generateSlug(text) {
+      if (!text) return '';
+      return text
+        .toString()
+        .toLowerCase()
+        .normalize('NFD')
+        .replace(/[\u0300-\u036f]/g, '') // Bỏ toàn bộ dấu tiếng Việt
+        .replace(/[đĐ]/g, 'd')
+        .replace(/[^a-z0-9\s-]/g, '') // Bỏ ký tự đặc biệt
+        .trim()
+        .replace(/\s+/g, '-') // Đổi khoảng trắng thành gạch ngang
+        .replace(/-+/g, '-'); // Rút gọn nhiều dấu gạch ngang liên tiếp
+    }
+    window.generateSlug = generateSlug;
+
+    // Đảm bảo Slug ID của VĐV không bị trùng lặp
+    function ensureUniqueAthleteSlug(baseInput, excludeIndex = -1) {
+      const baseSlug = generateSlug(baseInput) || 'vdv';
+      if (!appData || !Array.isArray(appData.athletes)) return baseSlug;
+
+      let candidate = baseSlug;
+      let counter = 2;
+      const isDuplicate = (s) => {
+        return appData.athletes.some((a, idx) => idx !== excludeIndex && (a.id || '').toLowerCase() === s.toLowerCase());
+      };
+
+      while (isDuplicate(candidate)) {
+        candidate = `${baseSlug}-${counter}`;
+        counter++;
+      }
+      return candidate;
+    }
+    window.ensureUniqueAthleteSlug = ensureUniqueAthleteSlug;
+
+    // Tìm kiếm VĐV thông minh: Khớp theo ID chuẩn, Slug từ tên hoặc tên không dấu
+    function findAthleteByIdOrSlug(idOrSlug) {
+      if (!appData || !Array.isArray(appData.athletes) || !idOrSlug) return null;
+      let target = String(idOrSlug).trim().toLowerCase().replace(/^#\/?/, '').replace(/^vdv\//, '');
+      target = target.split('?')[0].split('&')[0];
+      if (!target) return null;
+
+      // 1. Khớp chính xác ath.id
+      let found = appData.athletes.find(a => (a.id || '').toLowerCase() === target);
+      if (found) return found;
+
+      // 2. Khớp slug tạo từ tên ath.name
+      found = appData.athletes.find(a => generateSlug(a.name) === target);
+      if (found) return found;
+
+      // 3. Khớp không dấu / không gạch ngang (khoảng trắng)
+      const cleanTarget = target.replace(/[-_]/g, ' ');
+      found = appData.athletes.find(a => {
+        const cleanName = generateSlug(a.name).replace(/[-_]/g, ' ');
+        return cleanName === cleanTarget;
+      });
+      if (found) return found;
+
+      return null;
+    }
+    window.findAthleteByIdOrSlug = findAthleteByIdOrSlug;
+
+    // Tự động rà soát và sửa các ID sai lệch lịch sử (như vdv-timestamp hoặc Lee Zii Jia mang id viktor-axelsen)
+    function reconcileAthleteIds(athletes) {
+      if (!Array.isArray(athletes)) return;
+      const usedIds = new Set();
+
+      athletes.forEach(ath => {
+        if (!ath) return;
+        const expectedSlug = generateSlug(ath.name);
+        // Trường hợp cụ thể: tên là Lee Zii Jia nhưng id bị kẹt là viktor-axelsen
+        if (ath.name && ath.name.toUpperCase().includes('LEE ZII JIA') && ath.id === 'viktor-axelsen') {
+          ath.id = 'lee-zii-jia';
+        }
+        // Trường hợp VĐV có ID dạng vdv-timestamp (vdv-178885185...)
+        if (ath.id && ath.id.startsWith('vdv-')) {
+          ath.id = expectedSlug || ath.id;
+        }
+        // Trường hợp tên là Viktor Axelsen nhưng id bị gán nhầm hoặc dạng vdv-
+        if (ath.name && ath.name.toUpperCase().includes('VIKTOR AXELSEN') && (ath.id.startsWith('vdv-') || !ath.id)) {
+          ath.id = 'viktor-axelsen';
+        }
+        if (!ath.id && expectedSlug) {
+          ath.id = expectedSlug;
+        }
+      });
+
+      // Bảo đảm tính duy nhất tuyệt đối cho id của mỗi VĐV
+      athletes.forEach((ath, idx) => {
+        if (!ath) return;
+        let slug = ath.id || generateSlug(ath.name) || `vdv-${idx + 1}`;
+        let candidate = slug;
+        let counter = 2;
+        while (usedIds.has(candidate)) {
+          candidate = `${slug}-${counter}`;
+          counter++;
+        }
+        ath.id = candidate;
+        usedIds.add(ath.id);
+      });
+    }
+    window.reconcileAthleteIds = reconcileAthleteIds;
+
+    // Kiểm tra nếu người dùng truy cập bằng pathname trực tiếp (ví dụ: /ghiencaulong/viktor-axelsen)
+    function checkPathnameForAthlete() {
+      if (window.location.hash && window.location.hash !== '#') return;
+      try {
+        const pathSegments = window.location.pathname.split('/').filter(Boolean);
+        if (pathSegments.length > 0) {
+          const last = pathSegments[pathSegments.length - 1];
+          if (last && !last.includes('.') && last.toLowerCase() !== 'ghiencaulong') {
+            const ath = findAthleteByIdOrSlug(last);
+            if (ath) {
+              switchRoute('#vdv/' + ath.id);
+            }
+          }
+        }
+      } catch (e) {}
+    }
+    window.checkPathnameForAthlete = checkPathnameForAthlete;
+
     // Bộ nhớ ứng dụng hiện tại (fetch từ ./data.json)
     let appData = null;
 
@@ -3293,10 +3436,13 @@
           throw new Error("Cấu trúc file data.json không hợp lệ hoặc thiếu mảng 'athletes'.");
         }
 
+        reconcileAthleteIds(data.athletes);
         appData = data;
         if (errorContainer) errorContainer.style.display = 'none';
 
         renderAllScreens();
+        checkPathnameForAthlete();
+        handleHashChange();
       } catch (err) {
         console.error("LỖI NẠP FILE DATA.JSON:", err);
         // TUYỆT ĐỐI không quay về DEFAULT_DATA cũ theo đúng yêu cầu
@@ -3951,9 +4097,32 @@
     // Render Màn hình 2: Chi tiết VĐV (Giao diện chuẩn ảnh mẫu: Badmintond Nerd Pro & Gear Cards)
     function renderAthleteDetail(athleteId) {
       if (!appData || !appData.athletes || !appData.athletes.length) return;
-      const athlete = (athleteId ? appData.athletes.find(a => a.id === athleteId) : null) || appData.athletes[0];
+      const athlete = athleteId ? findAthleteByIdOrSlug(athleteId) : appData.athletes[0];
       const container = document.getElementById("athlete-detail-content");
-      if (!container || !athlete) return;
+      if (!container) return;
+
+      if (!athlete) {
+        container.innerHTML = `
+          <div style="padding: 60px 20px; text-align: center; max-width: 500px; margin: 0 auto; color: #cbd5e1;">
+            <div style="font-size: 48px; margin-bottom: 16px;">🏸</div>
+            <h3 style="font-size: 20px; color: #fff; margin-bottom: 8px;">Không tìm thấy tuyển thủ</h3>
+            <p style="font-size: 14px; color: #94a3b8; margin-bottom: 24px;">Đường dẫn tuyển thủ không tồn tại hoặc đã được thay đổi.</p>
+            <div style="display:flex; gap:12px; justify-content:center;">
+              <button onclick="openAllAthletes()" class="btn-primary-action" style="background:var(--accent-lime); color:#0B0F14; border:none; padding:10px 20px; border-radius:8px; font-weight:700; cursor:pointer;">Xem tất cả tuyển thủ</button>
+              <button onclick="goHome()" class="btn-primary-action" style="background:rgba(255,255,255,0.1); color:#fff; border:1px solid rgba(255,255,255,0.2); padding:10px 20px; border-radius:8px; font-weight:700; cursor:pointer;">Về trang chủ</button>
+            </div>
+          </div>
+        `;
+        return;
+      }
+
+      // Đảm bảo URL hash đồng bộ chính xác với ID chuẩn của VĐV (#vdv/viktor-axelsen)
+      if (window.location.hash !== '#vdv/' + athlete.id) {
+        try {
+          window.history.replaceState(null, '', '#vdv/' + athlete.id);
+        } catch (e) {}
+      }
+      document.title = `${athlete.name} | Ghiền Cầu Lông`;
 
       const shortName = getShortOutlineName(athlete.name);
       const verticalLettersHtml = shortName.split('').map(c => `<span>${c}</span>`).join('');
@@ -4144,7 +4313,9 @@
 
     function openAthleteDetail(id) {
       previousRouteBeforeDetail = window.location.hash || '';
-      switchRoute('#vdv/' + id);
+      const ath = findAthleteByIdOrSlug(id);
+      const cleanId = ath ? ath.id : id;
+      switchRoute('#vdv/' + cleanId);
     }
     window.openAthleteDetail = openAthleteDetail;
 
@@ -4451,6 +4622,24 @@
       });
     }
 
+    function parseAthleteRoute(hash) {
+      if (!hash) return null;
+      let raw = hash.trim();
+      if (raw.startsWith('#/vdv/')) return raw.replace('#/vdv/', '').trim();
+      if (raw.startsWith('#vdv/')) return raw.replace('#vdv/', '').trim();
+
+      const reservedRoutes = ['quantri-gcl82', 'tat-ca-vdv', 'tuyen-thu', 'tat-ca-san-pham', 'san-pham', 'tat-ca-bestsellers', 'bestsellers'];
+      let candidate = raw.replace(/^#\/?/, '').trim();
+      candidate = candidate.split('?')[0].split('&')[0];
+      if (candidate && !reservedRoutes.includes(candidate)) {
+        if (appData && findAthleteByIdOrSlug(candidate)) {
+          return candidate;
+        }
+      }
+      return null;
+    }
+    window.parseAthleteRoute = parseAthleteRoute;
+
     function handleHashChange() {
       const hash = window.location.hash || '';
       const screens = document.querySelectorAll('.view-screen');
@@ -4460,10 +4649,10 @@
         updatePreviewBanner();
       }
 
-      if (hash.startsWith('#vdv/')) {
-        const athleteId = hash.replace('#vdv/', '').trim();
+      const athleteTarget = parseAthleteRoute(hash);
+      if (athleteTarget) {
         if (appData) {
-          renderAthleteDetail(athleteId);
+          renderAthleteDetail(athleteTarget);
         }
         document.getElementById('screen-detail').classList.add('active');
         window.scrollTo({ top: 0, behavior: 'instant' });
@@ -5324,6 +5513,49 @@
     }
     window.handleAdminAthleteCategoryChange = handleAdminAthleteCategoryChange;
 
+    function updateAthleteLinkPreview(slug) {
+      const previewEl = document.getElementById('f-ath-link-preview');
+      if (!previewEl) return;
+      const cleanSlug = generateSlug(slug) || '...';
+      previewEl.textContent = `#vdv/${cleanSlug}`;
+    }
+    window.updateAthleteLinkPreview = updateAthleteLinkPreview;
+
+    function autoGenerateCurrentAthleteSlug() {
+      const nameInput = document.getElementById('f-ath-name');
+      const idInput = document.getElementById('f-ath-id');
+      if (nameInput && idInput) {
+        delete idInput.dataset.manualEdit;
+        const newSlug = ensureUniqueAthleteSlug(nameInput.value.trim(), editingAthleteIndex !== null ? editingAthleteIndex : -1);
+        idInput.value = newSlug;
+        updateAthleteLinkPreview(newSlug);
+        showToast(`Đã tạo slug mới: ${newSlug}`);
+      }
+    }
+    window.autoGenerateCurrentAthleteSlug = autoGenerateCurrentAthleteSlug;
+
+    function copyAthleteLinkFromAdmin() {
+      const idInput = document.getElementById('f-ath-id');
+      const slug = generateSlug(idInput ? idInput.value.trim() : '') || '';
+      if (!slug) {
+        showToast('Chưa có mã liên kết để sao chép!');
+        return;
+      }
+      const origin = (window.location.origin && window.location.origin !== 'null') ? window.location.origin : '';
+      const pathname = window.location.pathname.replace(/\/+$/, '');
+      const fullUrl = `${origin}${pathname}/#vdv/${slug}`;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(fullUrl).then(() => {
+          showToast(`Đã sao chép liên kết: ${fullUrl}`);
+        }).catch(() => {
+          prompt('Sao chép liên kết VĐV bên dưới:', fullUrl);
+        });
+      } else {
+        prompt('Sao chép liên kết VĐV bên dưới:', fullUrl);
+      }
+    }
+    window.copyAthleteLinkFromAdmin = copyAthleteLinkFromAdmin;
+
     // Chọn VĐV để sửa
     function selectAthleteForEdit(idx) {
       if (!appData || !appData.athletes) return;
@@ -5344,6 +5576,14 @@
 
       document.getElementById('form-athlete-title').textContent = 'Sửa: ' + ath.name;
       document.getElementById('f-ath-name').value = ath.name || '';
+
+      const idInput = document.getElementById('f-ath-id');
+      const currentSlug = ath.id || generateSlug(ath.name) || '';
+      if (idInput) {
+        idInput.value = currentSlug;
+        delete idInput.dataset.manualEdit;
+      }
+      updateAthleteLinkPreview(currentSlug);
       
       const isSingle = isAthleteSingle(ath);
       const athCat = isSingle ? 'Đánh đơn' : 'Đánh đôi';
@@ -5577,10 +5817,11 @@
 
     // Thêm mới VĐV (đẩy xuống dưới cùng danh sách)
     document.getElementById('btn-add-new-athlete').addEventListener('click', () => {
-      const newId = "vdv-" + Date.now();
+      const defaultName = "TUYỂN THỦ MỚI";
+      const newId = ensureUniqueAthleteSlug("tuyen-thu-moi", -1);
       const newAthlete = {
         id: newId,
-        name: "TUYỂN THỦ MỚI",
+        name: defaultName,
         country: "VIỆT NAM",
         flag: "🇻🇳",
         category: "Đánh đơn",
@@ -5629,6 +5870,16 @@
         isDanger: false,
         onConfirm: () => {
           ath.name = newName;
+          const idInput = document.getElementById('f-ath-id');
+          const customSlug = idInput ? idInput.value.trim() : '';
+          const finalSlug = ensureUniqueAthleteSlug(customSlug || newName, editingAthleteIndex);
+          ath.id = finalSlug;
+          if (idInput) {
+            idInput.value = finalSlug;
+            delete idInput.dataset.manualEdit;
+          }
+          updateAthleteLinkPreview(finalSlug);
+
           const catEl = document.getElementById('f-ath-category');
           const chosenCat = catEl ? catEl.value.trim() : 'Đánh đơn';
           ath.category = chosenCat;
@@ -5650,7 +5901,7 @@
             .filter(Boolean)
             .slice(0, 4);
 
-          persistData(`Đã lưu thông tin VĐV ${newName}!`);
+          persistData(`Đã lưu thông tin VĐV ${newName} (#vdv/${finalSlug})!`);
         }
       });
     });
@@ -5869,6 +6120,7 @@
         try {
           const parsed = JSON.parse(event.target.result);
           if (parsed && parsed.athletes && Array.isArray(parsed.athletes)) {
+            reconcileAthleteIds(parsed.athletes);
             appData = parsed;
             renderAllScreens();
             showToast("Đã nạp file data.json thành công vào giao diện!");
@@ -5894,6 +6146,24 @@
           renderDisciplineQuickPills(catSelect ? catSelect.value : 'Đánh đơn', e.target.value);
         });
       }
+
+      // Tự động đồng bộ Slug ID khi gõ tên VĐV (nếu người dùng chưa tự sửa thủ công)
+      const athNameInput = document.getElementById('f-ath-name');
+      const athIdInput = document.getElementById('f-ath-id');
+      if (athNameInput && athIdInput) {
+        athNameInput.addEventListener('input', (e) => {
+          if (!athIdInput.dataset.manualEdit) {
+            const autoSlug = generateSlug(e.target.value);
+            athIdInput.value = autoSlug;
+            updateAthleteLinkPreview(autoSlug);
+          }
+        });
+        athIdInput.addEventListener('input', (e) => {
+          athIdInput.dataset.manualEdit = 'true';
+          updateAthleteLinkPreview(e.target.value);
+        });
+      }
+
       handleHashChange();
       await loadDataFromStorage();
     });
