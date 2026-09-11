@@ -444,6 +444,57 @@
           "imgZoom": 1
         }
       ]
+    },
+    {
+      "id": "vdv-1789095531872",
+      "name": "CHIHARU SHIDA",
+      "country": "NHẬT BẢN",
+      "flag": "JP",
+      "category": "Đánh đôi",
+      "discipline": "Đôi Nữ",
+      "birthplace": "HACHIROGATA, AKITA",
+      "birthyear": "1997.04.29",
+      "portrait": "./images/chiharushida.jfif",
+      "height": "162 cm",
+      "weight": "52 kg",
+      "shoesize": "38–39",
+      "tension": "27–29 lbs",
+      "achievements": [
+        "HCĐ Olympic Paris 2024 (Olympic Games)",
+        "Vô địch All England 2022 (All England Open)",
+        "Vô địch All England 2023 (All England Open)",
+        "Career High #2 thế giới Đôi nữ"
+      ],
+      "gear": [
+        {
+          "type": "VỢT",
+          "name": "Li-Ning BLADEX 880 SHIDA Pearl White 4U — G5/G6 retail",
+          "img": "./images/votshida.webp",
+          "link": "https://s.shopee.vn/8V8qJ3DPY0 ",
+          "imgZoom": 1
+        },
+        {
+          "type": "GIÀY",
+          "name": "Li-Ning BLADE MAX SHIDA White/Pink",
+          "img": "./images/giayshida.jpg",
+          "link": "https://s.shopee.vn/9fKnhVF2mC",
+          "imgZoom": 1
+        },
+        {
+          "type": "CƯỚC",
+          "name": "Yonex Nanogy 95 (NBG95) 0.69mm ",
+          "img": "./images/cuocshida.webp",
+          "link": "https://s.shopee.vn/3VkALlCjWX",
+          "imgZoom": 1
+        },
+        {
+          "type": "CUỐN CÁN",
+          "name": "Cuốn cán Yonex Towel Grip ",
+          "img": "./images/quancanshida.jfif",
+          "link": "https://s.shopee.vn/9AOX6eOCRN",
+          "imgZoom": 1
+        }
+      ]
     }
   ],
   "bestsellers": [
