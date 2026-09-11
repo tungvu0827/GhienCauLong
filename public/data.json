@@ -393,6 +393,57 @@
           "imgZoom": 1
         }
       ]
+    },
+    {
+      "id": "vdv-1789094808386",
+      "name": "Kim Won Ho",
+      "country": "SOUTH KOREA",
+      "flag": "KR",
+      "category": "Đánh đơn",
+      "discipline": "Đơn Nam",
+      "birthplace": "SUWON,  SOUTH KOREA",
+      "birthyear": "1999.06.02",
+      "portrait": "./images/kimwonho-profile.webp",
+      "height": "184 cm",
+      "weight": "78–82 kg",
+      "shoesize": "43–44",
+      "tension": "30/31 lbs",
+      "achievements": [
+        "HCB Olympic Paris 2024 Đôi nam nữ (Olympic Games)",
+        "Vô địch Thế giới 2025 Đôi nam (BWF World Championships)",
+        "Vô địch All England 2025 (All England Open)",
+        "Vô địch All England 2026 (All England Open)"
+      ],
+      "gear": [
+        {
+          "type": "VỢT",
+          "name": "Yonex NANOFLARE 700 PRO Midnight Purple Head Light — Medium",
+          "img": "./images/vot-kim-won-ho.jfif",
+          "link": "https://s.shopee.vn/AKaUSjrnP8",
+          "imgZoom": 1
+        },
+        {
+          "type": "GIÀY",
+          "name": "Yonex POWER CUSHION 65 Z4 MEN White",
+          "img": "./images/giaykim.jfif",
+          "link": "https://s.shopee.vn/112pLk5cVT",
+          "imgZoom": 1
+        },
+        {
+          "type": "CƯỚC",
+          "name": "Yonex BG80 0.68mm — Quick RepulsionYonex ",
+          "img": "./images/cuockim.jfif",
+          "link": "https://s.shopee.vn/4fw7iXQ3lI",
+          "imgZoom": 1
+        },
+        {
+          "type": "CUỐN CÁN",
+          "name": "TOWEL GRIP Cotton — High Absorbency AC402EX",
+          "img": "./images/quancankim.jfif",
+          "link": "https://s.shopee.vn/8KpQ5MdzAR",
+          "imgZoom": 1
+        }
+      ]
     }
   ],
   "bestsellers": [
