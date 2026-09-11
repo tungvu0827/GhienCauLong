@@ -354,9 +354,9 @@
       "birthyear": "1997.09.04",
       "portrait": "./images/seo-seung-jae-profile.jfif",
       "height": "182 cm",
-      "weight": "CHƯA XÁC MINH ĐƯỢC",
-      "shoesize": "CHƯA XÁC MINH ĐƯỢC",
-      "tension": "CHƯA XÁC MINH ĐƯỢC",
+      "weight": "75–80 kg",
+      "shoesize": "43–44 EU",
+      "tension": "29/30 lbs",
       "achievements": [
         "Vô địch Thế giới 2023 Đôi nam (BWF World Championships)",
         "Vô địch Thế giới 2023 Đôi nam nữ (BWF World Championships)",
@@ -367,7 +367,7 @@
         {
           "type": "VỢT",
           "name": "Yonex NANOFLARE 700 PRO Midnight Purple Head Light — Medium Flex",
-          "img": "./images/votseo.webp",
+          "img": "./images/votseo.jfif",
           "link": "https://s.shopee.vn/5LBnOuZrfU",
           "imgZoom": 1
         },
