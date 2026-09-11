@@ -9,7 +9,7 @@
   },
   "athletes": [
     {
-      "id": "seo-seung-jae",
+      "id": "lin-dan",
       "name": "LIN DAN",
       "country": "TRUNG QUỐC",
       "flag": "CN",
@@ -53,10 +53,10 @@
         }
       ],
       "category": "Đánh đơn",
-      "discipline": ""
+      "discipline": "Đơn Nam"
     },
     {
-      "id": "kim-won-ho",
+      "id": "lee-chong-wei",
       "name": "LEE CHONG WEI",
       "country": "MALAYSIA",
       "flag": "MY",
@@ -100,7 +100,7 @@
         "46 Danh hiệu Superseries"
       ],
       "category": "Đánh đơn",
-      "discipline": ""
+      "discipline": "Đơn Nam"
     },
     {
       "id": "kento-momota",
@@ -150,7 +150,7 @@
       "discipline": ""
     },
     {
-      "id": "viktor-axelsen",
+      "id": "lee-zii-jia",
       "name": "LEE ZII JIA",
       "country": "MALAYSIA",
       "flag": "MY",
@@ -195,7 +195,7 @@
       "discipline": ""
     },
     {
-      "id": "vdv-1788851850140",
+      "id": "viktor-axelsen",
       "name": "VIKTOR AXELSEN",
       "country": "DENMARK",
       "flag": "DK",
@@ -242,7 +242,7 @@
       "discipline": ""
     },
     {
-      "id": "vdv-1788937313142",
+      "id": "shi-yu-qi",
       "name": "SHI YU QI",
       "country": "TRUNG QUỐC",
       "flag": "CN",
@@ -293,7 +293,7 @@
       "discipline": ""
     },
     {
-      "id": "vdv-1788940090706",
+      "id": "an-se-young",
       "name": "AN SE YOUNG",
       "country": "HÀN QUỐC",
       "flag": "KR",
@@ -344,7 +344,7 @@
       "discipline": "Đơn Nữ"
     },
     {
-      "id": "vdv-1789092590808",
+      "id": "seo-seung-jae",
       "name": "SEO SEUNG JAE",
       "country": "HÀN QUỐC",
       "flag": "KR",
@@ -395,7 +395,7 @@
       ]
     },
     {
-      "id": "vdv-1789094808386",
+      "id": "kim-won-ho",
       "name": "KIM WON HO",
       "country": "SOUTH KOREA",
       "flag": "KR",
@@ -446,7 +446,7 @@
       ]
     },
     {
-      "id": "vdv-1789095531872",
+      "id": "chiharu-shida",
       "name": "CHIHARU SHIDA",
       "country": "NHẬT BẢN",
       "flag": "JP",
