@@ -396,11 +396,11 @@
     },
     {
       "id": "vdv-1789094808386",
-      "name": "Kim Won Ho",
+      "name": "KIM WON HO",
       "country": "SOUTH KOREA",
       "flag": "KR",
-      "category": "Đánh đơn",
-      "discipline": "Đơn Nam",
+      "category": "Đánh đôi",
+      "discipline": "Đôi Nam / Nam Nữ",
       "birthplace": "SUWON,  SOUTH KOREA",
       "birthyear": "1999.06.02",
       "portrait": "./images/kimwonho-profile.webp",
@@ -525,6 +525,33 @@
       "link": "https://s.shopee.vn/2qUP0vpOtW"
     },
     {
+      "id": "bs-1789098575731",
+      "name": "BÓNG TẬP CỔ TAY",
+      "category": "Phụ kiện",
+      "desc": "Giải Toả Căng Thẳng Công Việc Và Rèn Luyện sức mạnh cổ tay cầu lông",
+      "price": "67.000đ",
+      "img": "./images/bongtapcau.webp",
+      "link": "https://s.shopee.vn/4qFXxiNdwg"
+    },
+    {
+      "id": "bs-1789098426979",
+      "name": "NẮP SAU TAY CẦM HOẠT HÌNH NHỰA CỨNG GÓI",
+      "category": "Phụ kiện",
+      "desc": "Miếng Dán Sửa Đổi Phụ Kiện Nắp Sau Tay Cầm Hoạt Hình",
+      "price": "110.000đ",
+      "img": "./images/napsau.webp",
+      "link": "https://s.shopee.vn/AAH4JFBVqq"
+    },
+    {
+      "id": "bs-1789098652043",
+      "name": "QUẦN ÁO CẦU LÔNG NAM VB1025",
+      "category": "Quần áo",
+      "desc": "Quần Áo Cầu Lông Nam Chuyên Nghiệp Dùng Trong Tập Luyện Và Thi Đấu Cầu Lông",
+      "price": "130.000đ",
+      "img": "./images/aocaulong.webp",
+      "link": "https://s.shopee.vn/9V1NWOgV8b"
+    },
+    {
       "id": "bs-4",
       "name": "BỘ QUẦN ÁO XÁM VN A904",
       "desc": "Tối giản, sạch sẽ, dễ phối đồ",
@@ -559,6 +586,105 @@
       "img": "./images/balo-yonex.webp",
       "link": "https://s.shopee.vn/6AkqyRenEm",
       "category": "Phụ kiện"
+    },
+    {
+      "id": "bs-1789098726855",
+      "name": "Yonex Astrox 77 Play",
+      "category": "Vợt",
+      "desc": "Dễ đánh, công thủ cân bằng, hợp người mới lên trình",
+      "price": "1.450.000đ",
+      "img": "./images/yonex77play.jpg",
+      "link": "https://s.shopee.vn/gPz0o7azL"
+    },
+    {
+      "id": "bs-1789098916134",
+      "name": "LI-NING AXFORCE 20",
+      "category": "Vợt",
+      "desc": "Thiên công nhẹ, trợ lực ổn, giá dễ tiếp cận",
+      "price": "880.000đ",
+      "img": "./images/li-ning-axforce-20.webp",
+      "link": "https://s.shopee.vn/2gB3OVpcO2"
+    },
+    {
+      "id": "bs-1789098980928",
+      "name": "YONEX NANOFLARE 700 PLAY",
+      "category": "Vợt",
+      "desc": "Vung nhanh, phản tạt tốt, hợp đánh đôi",
+      "price": "1.490.000đ",
+      "img": "./images/yonex-nanoflare-700-play.webp",
+      "link": "https://s.shopee.vn/40gQyzfoe0"
+    },
+    {
+      "id": "bs-1789099062185",
+      "name": "YONEX ARCSABER 7 PLAY",
+      "category": "Vợt",
+      "desc": "Cân bằng, kiểm soát cầu tốt, dễ làm quen",
+      "price": "1.410.000đ",
+      "img": "./images/yonex-arcsaber-7-play.webp",
+      "link": "https://s.shopee.vn/2BEmp5YAk4"
+    },
+    {
+      "id": "bs-1789099159688",
+      "name": "LI-NING HALBERTEC 2000",
+      "category": "Vợt",
+      "desc": "Dễ chơi, kiểm soát ổn, hợp phong trào",
+      "price": "1.200.000đ",
+      "img": "./images/li-ning-halbertec-2000.webp",
+      "link": "https://s.shopee.vn/5foey6KVgW"
+    },
+    {
+      "id": "bs-1789099270860",
+      "name": "Victor Thruster K 220H II",
+      "category": "Vợt",
+      "desc": "Thiên công, thân vợt đầm, hợp người thích smash",
+      "price": "1.340.000đ",
+      "img": "./images/victor-thruster-k-220h-ii.webp",
+      "link": "https://s.shopee.vn/1BMFdTA7Rm"
+    },
+    {
+      "id": "bs-1789099430083",
+      "name": "VICTOR A170",
+      "category": "Giày",
+      "desc": "Bám sân tốt, form dễ mang, giá dễ tiếp cận",
+      "price": "1.249.000đ",
+      "img": "./images/victor-a170.jpg",
+      "link": "https://s.shopee.vn/6fhCAGDiAG"
+    },
+    {
+      "id": "bs-1789099505883",
+      "name": "YONEX POWER CUSHION STRIDER FLOW",
+      "category": "Giày",
+      "desc": "Êm chân, ổn định, hợp người mới và phong trào",
+      "price": "1.506.000đ",
+      "img": "./images/yonex-power-cushion-strider-flow-wide.webp",
+      "link": "https://s.shopee.vn/70K2YuxH7o"
+    },
+    {
+      "id": "bs-1789099549651",
+      "name": "VICTOR A170 II",
+      "category": "Giày",
+      "desc": "Nâng cấp từ A170, đệm tốt và ôm chân chắc hơn",
+      "price": "1.249.000đ",
+      "img": "./images/victor-a170-ii.jpg",
+      "link": "https://s.shopee.vn/qjPDclEeH"
+    },
+    {
+      "id": "bs-1789099623437",
+      "name": "MIZUNO GATE SKY PLUS",
+      "category": "Phụ kiện",
+      "desc": "Êm, form rộng vừa, hợp người chơi ưu tiên thoải mái",
+      "price": "1.464.000đ",
+      "img": "./images/mizuno-gate-sky-plus.jpg",
+      "link": "https://s.shopee.vn/9AOX8yMTHd"
+    },
+    {
+      "id": "bs-1789099675684",
+      "name": "Yonex Court Flow 2026",
+      "category": "Giày",
+      "desc": "Giá mềm, nhẹ, hợp học sinh sinh viên và người mới chơi",
+      "price": "750.000đ",
+      "img": "./images/yonex-strider-flow.webp",
+      "link": "https://s.shopee.vn/8fSGY5Nlzw"
     }
   ],
   "beginners": [
