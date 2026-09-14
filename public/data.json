@@ -495,6 +495,57 @@
           "imgZoom": 1
         }
       ]
+    },
+    {
+      "id": "anthony-ginting",
+      "name": "ANTHONY GINTING",
+      "country": "INDONESIA",
+      "flag": "MY",
+      "category": "Đánh đơn",
+      "discipline": "Đơn Nam",
+      "birthplace": "CIMAHI, WEST JAVA, INDONESIA",
+      "birthyear": "1996.10.20",
+      "portrait": "./images/ginting-profile.jfif",
+      "height": "171 cm",
+      "weight": "66 kg",
+      "shoesize": "41–42",
+      "tension": "31 lbs",
+      "achievements": [
+        "HCĐ Olympic Tokyo 2020 (Olympic Games)",
+        "Vô địch Châu Á 2023 (Badminton Asia Championships)",
+        "Vô địch Singapore Open 2023",
+        "Career High #2 Thế giới"
+      ],
+      "gear": [
+        {
+          "type": "VỢT",
+          "name": "VICTOR THRUSTER RYUGA II PRO Head Heavy — Stiff POWER RING PRO",
+          "img": "./images/votginting.jfif",
+          "link": "https://s.shopee.vn/9V1SEttqiM ",
+          "imgZoom": 1
+        },
+        {
+          "type": "GIÀY",
+          "name": "VICTOR A970 NitroLite AG White / Brook Green NitroLite",
+          "img": "./images/giayginting.jfif",
+          "link": "https://s.shopee.vn/3LQotcmYsV",
+          "imgZoom": 1
+        },
+        {
+          "type": "CƯỚC",
+          "name": "VICTOR VBS-66N 0.66mm — High Resilience",
+          "img": "./images/cuocginting.jfif",
+          "link": "https://s.shopee.vn/BTn7vOf7t ",
+          "imgZoom": 1
+        },
+        {
+          "type": "CUỐN CÁN",
+          "name": " Yonex Towel Grip",
+          "img": "./images/quancanginting.jfif",
+          "link": "https://s.shopee.vn/30nyVFQAki",
+          "imgZoom": 1
+        }
+      ]
     }
   ],
   "bestsellers": [
