@@ -546,6 +546,57 @@
           "imgZoom": 1
         }
       ]
+    },
+    {
+      "id": "tuyen-thu-moi",
+      "name": "CHEN LONG",
+      "country": "TRUNG QUỐC",
+      "flag": "CN",
+      "category": "Đánh đơn",
+      "discipline": "Đơn Nam",
+      "birthplace": "HUBEI, CHINA",
+      "birthyear": "1989.01.18",
+      "portrait": "./images/chenlong-profile.jpg",
+      "height": "187–188 cm",
+      "weight": "75–81 kg",
+      "shoesize": "43–44",
+      "tension": "32–33 lbs",
+      "achievements": [
+        "HCV Olympic Rio 2016 (Olympic Games)",
+        "HCB Olympic Tokyo 2020 (Olympic Games)",
+        "Vô địch Thế giới 2014 (BWF World Championships)",
+        "Vô địch Thế giới 2015 (BWF World Championships)"
+      ],
+      "gear": [
+        {
+          "type": "VỢT",
+          "name": "Li-Ning AXFORCE 80 Black Head Heavy — 6.6mm Shaft",
+          "img": "./images/votchenlong.webp",
+          "link": "https://s.shopee.vn/9peJgi0ZkL ",
+          "imgZoom": 1
+        },
+        {
+          "type": "GIÀY",
+          "name": "Li-Ning AXFORCE LT-01 CL AYAS034-1",
+          "img": "./images/giaychenlong.jpg",
+          "link": "https://s.shopee.vn/7ptFJiannH",
+          "imgZoom": 1
+        },
+        {
+          "type": "CƯỚC",
+          "name": "Li-Ning No.1",
+          "img": "./images/cuocchenlong.jpg",
+          "link": "https://s.shopee.vn/9Ki36el47v",
+          "imgZoom": 1
+        },
+        {
+          "type": "CUỐN CÁN",
+          "name": "Li-Ning GP3000",
+          "img": "./images/quancanchenlong.webp",
+          "link": "https://s.shopee.vn/9V1TIpu3Y2 ",
+          "imgZoom": 1
+        }
+      ]
     }
   ],
   "bestsellers": [
