@@ -597,6 +597,52 @@
           "imgZoom": 1
         }
       ]
+    },
+    {
+      "id": "kunlavut-vitidsarn",
+      "name": "KUNLAVUT VITIDSARN",
+      "country": "THÁI LAN",
+      "flag": "TH",
+      "category": "Đánh đơn",
+      "discipline": "Đơn Nam",
+      "birthplace": "CHONBURI, THAILAND",
+      "birthyear": "2001.05.11",
+      "portrait": "./images/kunlavut-profile.jpg",
+      "height": "177 cm",
+      "weight": "80–85 kg",
+      "shoesize": "42–43",
+      "tension": "32 lbs",
+      "achievements": [],
+      "gear": [
+        {
+          "type": "VỢT",
+          "name": "Yonex ASTROX 88D PRO Black / Silver Head Heavy — Stiff 4U",
+          "img": "./images/kunlavut-vot.webp",
+          "link": "https://s.shopee.vn/7AdhtyLHPw ",
+          "imgZoom": 1
+        },
+        {
+          "type": "GIÀY",
+          "name": "Yonex SUBAXIA GT MEN Dark Gray GRPHT THRTTL — POWER CUSHION REV",
+          "img": "./images/kunbeogiay.webp",
+          "link": "https://s.shopee.vn/80CotZY5gB",
+          "imgZoom": 1
+        },
+        {
+          "type": "CƯỚC",
+          "name": "Yonex BG80 0.68mm — Quick Repulsion 32 lbs",
+          "img": "./images/kunlavut-bg80.webp",
+          "link": "https://s.shopee.vn/30o8wRYnvG",
+          "imgZoom": 1
+        },
+        {
+          "type": "CUỐN CÁN",
+          "name": "Yonex SUPER GRAP AC102 0.6mm — Tacky Feel",
+          "img": "./images/kunlavut-quancan.webp",
+          "link": "https://s.shopee.vn/6q0rVWidI9",
+          "imgZoom": 1
+        }
+      ]
     }
   ],
   "bestsellers": [
