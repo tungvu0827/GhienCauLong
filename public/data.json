@@ -612,7 +612,12 @@
       "weight": "80–85 kg",
       "shoesize": "42–43",
       "tension": "32 lbs",
-      "achievements": [],
+      "achievements": [
+        "HCB Olympic Paris 2024 (Olympic Games)",
+        "Vô địch Thế giới 2023 (BWF World Championships)",
+        "HCB Thế giới 2025 (BWF World Championships)",
+        "Vô địch Malaysia Open 2026 (Malaysia Open Super 1000)"
+      ],
       "gear": [
         {
           "type": "VỢT",
@@ -640,6 +645,57 @@
           "name": "Yonex SUPER GRAP AC102 0.6mm — Tacky Feel",
           "img": "./images/kunlavut-quancan.webp",
           "link": "https://s.shopee.vn/6q0rVWidI9",
+          "imgZoom": 1
+        }
+      ]
+    },
+    {
+      "id": "anders-antonsen",
+      "name": "ANDERS ANTONSEN",
+      "country": "ĐAN MẠCH",
+      "flag": "DK",
+      "category": "Đánh đơn",
+      "discipline": "Đơn Nam",
+      "birthplace": "AARHUS, DENMARK",
+      "birthyear": "1997.04.27",
+      "portrait": "./images/antosen-profile.jpg",
+      "height": "185 cm",
+      "weight": "80 kg",
+      "shoesize": "44–45",
+      "tension": "31/33 lbs",
+      "achievements": [
+        "HCB Vô địch Thế giới 2019 (BWF World Championships)",
+        "HCĐ Vô địch Thế giới 2021, 2023, 2025 (BWF World Championships)",
+        "Vô địch Châu Âu 2021 & 2024 (European Championships)",
+        "Vô địch Malaysia Open 2024 (Malaysia Open)"
+      ],
+      "gear": [
+        {
+          "type": "VỢT",
+          "name": "ICTOR AURASPEED 99 Black / Pink / Purple Stiff",
+          "img": "./images/votantosen.jpg",
+          "link": "https://s.shopee.vn/6q0tFm07Iy ",
+          "imgZoom": 1
+        },
+        {
+          "type": "GIÀY",
+          "name": "VICTOR AURASPEED 90K METALLIC R Pale Turquoise 4U G5",
+          "img": "./images/giayantonsen.webp",
+          "link": " https://s.shopee.vn/4fwOfppcfA",
+          "imgZoom": 1
+        },
+        {
+          "type": "CƯỚC",
+          "name": "VICTOR A970NitroLite A Pearly White",
+          "img": "./images/cuocantosen.webp",
+          "link": "https://s.shopee.vn/3B7ateywKN ",
+          "imgZoom": 1
+        },
+        {
+          "type": "CUỐN CÁN",
+          "name": "VICTOR VBS-63 0.63mm — Medium Feel / High Resilience 31/33 lbs",
+          "img": "./images/quancanantonxen.webp",
+          "link": "https://s.shopee.vn/8AWGqsjUry",
           "imgZoom": 1
         }
       ]
