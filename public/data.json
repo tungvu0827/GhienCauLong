@@ -901,6 +901,108 @@
           "imgZoom": 1
         }
       ]
+    },
+    {
+      "id": "feng-yanzhe",
+      "name": "FENG YANZHE",
+      "country": "TRUNG QUỐC",
+      "flag": "🇨🇳",
+      "category": "Đánh đôi",
+      "discipline": "Đôi Nam Nữ",
+      "birthplace": "TIANJIN, CHINA",
+      "birthyear": "2001.02.13",
+      "portrait": "./images/feng-yanzhe-profile.jpg",
+      "height": "195 cm",
+      "weight": "~82–83 kg",
+      "shoesize": "EU 45–46",
+      "tension": "29–31 lbs",
+      "achievements": [
+        "HCB Thế giới 2026 (BWF World Championships)",
+        "Vô địch China Masters 2026",
+        "Vô địch Châu Á 2024",
+        "Từng đạt Số 1 Thế Giới cùng Huang Dongping"
+      ],
+      "gear": [
+        {
+          "type": "VỢT",
+          "name": "Yonex ASTROX 77 PRO High Orange Medium Flex — Head Heavy",
+          "img": "./images/feng-yanzhe-vot.jpg",
+          "link": "https://s.shopee.vn/AAHMel9r2J ",
+          "imgZoom": 1
+        },
+        {
+          "type": "GIÀY",
+          "name": "Yonex POWER CUSHION 65 Z4 MEN White",
+          "img": "./images/feng-yanzhe-giay.webp",
+          "link": " https://s.shopee.vn/1AaYC25Mf ",
+          "imgZoom": 1
+        },
+        {
+          "type": "CƯỚC",
+          "name": "Yonex AEROBITE Mains 0.67mm",
+          "img": "./images/feng-yanzhe-cuoc.webp",
+          "link": " https://s.shopee.vn/1AaYI8WvK ",
+          "imgZoom": 1
+        },
+        {
+          "type": "CUỐN CÁN",
+          "name": "Yonex SUPER GRAP AC102-3",
+          "img": "./images/feng-yanzhe-quancan.webp",
+          "link": "https://s.shopee.vn/7VGbU89q6B ",
+          "imgZoom": 1
+        }
+      ]
+    },
+    {
+      "id": "huang-dongping",
+      "name": "HUANG DONGPING",
+      "country": "TRUNG QUỐC",
+      "flag": "CN",
+      "category": "Đánh đôi",
+      "discipline": "Đôi Nam Nữ",
+      "birthplace": "NAN'AN, QUANZHOU, FUJIAN, CHINA",
+      "birthyear": "1995",
+      "portrait": "./images/huang-dongping-profile.jpg",
+      "height": "165 cm",
+      "weight": "55–60 kg",
+      "shoesize": "EU 39–40",
+      "tension": "27 lbs",
+      "achievements": [
+        "HCV Olympic Tokyo 2020",
+        "HCB Thế giới 2026 (BWF World Championships)",
+        "Vô địch Châu Á 2024",
+        "Đạt Số 1 Thế Giới cùng Feng Yanzhe"
+      ],
+      "gear": [
+        {
+          "type": "VỢT",
+          "name": "Yonex ASTROX 77 PRO High Orange Medium Flex — Head Heavy 4U G5 ",
+          "img": "./images/huang-dongping-vot.jpg",
+          "link": "https://s.shopee.vn/8V98fiY9O3 ",
+          "imgZoom": 1
+        },
+        {
+          "type": "GIÀY",
+          "name": "Yonex POWER CUSHION 65 Z4 WOMEN White",
+          "img": "./images/huang-doping-giay.webp",
+          "link": "https://s.shopee.vn/5LC6u2O98s ",
+          "imgZoom": 1
+        },
+        {
+          "type": "CƯỚC",
+          "name": "Yonex BG66 ULTIMAX 0.65mm",
+          "img": "./images/huang-doping-cuoc.webp",
+          "link": " https://s.shopee.vn/7VGbUBlwxg ",
+          "imgZoom": 1
+        },
+        {
+          "type": "CUỐN CÁN",
+          "name": "Yonex SUPER GRAP AC102 3 Wraps",
+          "img": "./images/huang-doping-quancan.webp",
+          "link": "https://s.shopee.vn/3VkSiowuHp ",
+          "imgZoom": 1
+        }
+      ]
     }
   ],
   "bestsellers": [
