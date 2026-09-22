@@ -699,6 +699,106 @@
           "imgZoom": 1
         }
       ]
+    },
+    {
+      "id": "wang-chang",
+      "name": "WANG CHANG",
+      "country": "TRUNG QUỐC",
+      "flag": "CN",
+      "category": "Đánh đôi",
+      "discipline": "Đôi Nam",
+      "birthplace": "NINGBO, ZHEJIANG, CHINA",
+      "birthyear": "2001.05.07",
+      "portrait": "./images/wangchang-profile.webp",
+      "height": "181 cm",
+      "weight": "72 kg",
+      "shoesize": "EU 43–44",
+      "tension": "28/30 lbs",
+      "achievements": [
+        "Vô địch Thế giới 2026 (BWF World Championships)",
+        "HCB Olympic Paris 2024 (Olympic Games)",
+        "Từng đạt Số 1 Thế Giới cùng Liang Wei Keng"
+      ],
+      "gear": [
+        {
+          "type": "VỢT",
+          "name": "Yonex NANOFLARE 800 PRO Deep Green Stiff — Head Light / Speed 4U",
+          "img": "./images/vot-wang.webp",
+          "link": "https://s.shopee.vn/7ptR13K3kd ",
+          "imgZoom": 1
+        },
+        {
+          "type": "GIÀY",
+          "name": "Yonex SUBAXIA GT Men GRPHT THRTTL Explosive Drive",
+          "img": "./images/giay-wang.webp",
+          "link": "https://s.shopee.vn/4Vcz2zi3dY ",
+          "imgZoom": 1
+        },
+        {
+          "type": "CƯỚC",
+          "name": "Yonex BG80 0.68mm Hard Feeling",
+          "img": "./images/cuoc-wang.webp",
+          "link": " https://s.shopee.vn/1LfxHD26XJ ",
+          "imgZoom": 1
+        },
+        {
+          "type": "CUỐN CÁN",
+          "name": "Yonex SUPER GRAP AC102 Tacky Feel",
+          "img": "./images/quan-can-wang.webp",
+          "link": " https://s.shopee.vn/7VGacbhPcq ",
+          "imgZoom": 1
+        }
+      ]
+    },
+    {
+      "id": "liang-wei-keng",
+      "name": "LIANG WEI KENG",
+      "country": "TRUNG QUỐC",
+      "flag": "🇻🇳",
+      "category": "Đánh đôi",
+      "discipline": "Đôi Nam",
+      "birthplace": "GUANGZHOU, GUANGDONG, CHINA",
+      "birthyear": "2000.11.30",
+      "portrait": "./images/liang-profile.jfif",
+      "height": "175 cm",
+      "weight": "77 kg",
+      "shoesize": "EU 43–44",
+      "tension": "29/31 lbs",
+      "achievements": [
+        "Vô địch Thế giới 2026 (BWF World Championships)",
+        "HCB Olympic Paris 2024 (Olympic Games)",
+        "Từng đạt Số 1 Thế Giới cùng Wang Chang"
+      ],
+      "gear": [
+        {
+          "type": "VỢT",
+          "name": "Yonex ASTROX 100ZZ Extra Stiff — Head Heavy 3U/4U",
+          "img": "./images/liang-vot.jfif",
+          "link": " https://s.shopee.vn/9peVO8UlCL ",
+          "imgZoom": 1
+        },
+        {
+          "type": "GIÀY",
+          "name": "Yonex POWER CUSHION ECLIPSION Z 3rd Generation",
+          "img": "./images/liang-giay.jfif",
+          "link": "https://s.shopee.vn/6L4dDlcCrV ",
+          "imgZoom": 1
+        },
+        {
+          "type": "CƯỚC",
+          "name": "Yonex EXBOLT 68 0.68mm Power",
+          "img": "./images/liang-cuoc.jpg",
+          "link": "https://s.shopee.vn/8V97noBQmL ",
+          "imgZoom": 1
+        },
+        {
+          "type": "CUỐN CÁN",
+          "name": "Yonex SUPER GRAP AC102 Tacky Feel",
+          "img": "./images/quancanliang.webp",
+          "link": "https://s.shopee.vn/9V1ezivyoc ",
+          "imgZoom": 1
+        }
+      ]
     }
   ],
   "bestsellers": [
