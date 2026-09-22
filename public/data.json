@@ -799,6 +799,108 @@
           "imgZoom": 1
         }
       ]
+    },
+    {
+      "id": "aaron-chia",
+      "name": "AARON CHIA",
+      "country": "MALAYSIA",
+      "flag": "MY",
+      "category": "Đánh đôi",
+      "discipline": "Đôi Nam",
+      "birthplace": "BATU BERENDAM, MELAKA, MALAYSIA",
+      "birthyear": "1997.02.24",
+      "portrait": "./images/aaron-chia-profile.webp",
+      "height": "168 cm",
+      "weight": "72 kg",
+      "shoesize": "EU 42–43",
+      "tension": "32 lbs",
+      "achievements": [
+        "Vô địch Thế giới 2022 (BWF World Championships)",
+        "HCB Thế giới 2026 (BWF World Championships)",
+        "Vô địch Châu Á 2025",
+        "HCĐ Olympic Paris 2024"
+      ],
+      "gear": [
+        {
+          "type": "VỢT",
+          "name": "onex ARCSABER 11 PRO Grayish Pearl Stiff — Even Balance / Control 3U",
+          "img": "./images/aaron-chia-vot.webp",
+          "link": "https://s.shopee.vn/1qcDtHg3OE",
+          "imgZoom": 1
+        },
+        {
+          "type": "GIÀY",
+          "name": "Yonex POWER CUSHION 65 Z4 MEN White SHB65Z4M",
+          "img": "./images/aaron-chia-giay.webp",
+          "link": " https://s.shopee.vn/40giTAiCgB ",
+          "imgZoom": 1
+        },
+        {
+          "type": "CƯỚC",
+          "name": "Yonex EXBOLT 65 0.65mm Quick Repulsio",
+          "img": "./images/aaron-chia-cuoc.webp",
+          "link": "https://s.shopee.vn/AKam0xH93Y",
+          "imgZoom": 1
+        },
+        {
+          "type": "CUỐN CÁN",
+          "name": "Yonex SUPER GRAP AC102 Tacky Feel",
+          "img": "./images/aaron-chia-quancan.webp",
+          "link": " https://s.shopee.vn/40giT5PBf4 ",
+          "imgZoom": 1
+        }
+      ]
+    },
+    {
+      "id": "tuyen-thu-moi-2",
+      "name": "SOH WOOI YIK",
+      "country": "MALAYSIA",
+      "flag": "MY",
+      "category": "Đánh đôi",
+      "discipline": "Đôi Nam",
+      "birthplace": "KUALA LUMPUR, MALAYSIA",
+      "birthyear": "1998.02.17",
+      "portrait": "./images/soh-wooi-yik-profile.jfif",
+      "height": "185 cm",
+      "weight": "73 kg",
+      "shoesize": "44–45",
+      "tension": "30–31 lbs",
+      "achievements": [
+        "Vô địch Thế giới 2022 (BWF World Championships)",
+        "HCB Thế giới 2026 (BWF World Championships)",
+        "Vô địch Châu Á 2025",
+        "HCĐ Olympic Paris 2024"
+      ],
+      "gear": [
+        {
+          "type": "VỢT",
+          "name": "Yonex ASTROX 88D PRO Black / Silver Stiff — Head Heavy 4U ",
+          "img": "./images/soh-wooi-yik-vot.webp",
+          "link": "https://s.shopee.vn/1qcDtHg3OE ",
+          "imgZoom": 1
+        },
+        {
+          "type": "GIÀY",
+          "name": "Yonex POWER CUSHION 65 Z4 MEN White",
+          "img": "./images/soh-wooi-yik-giay.webp",
+          "link": "https://s.shopee.vn/40giTAiCgB ",
+          "imgZoom": 1
+        },
+        {
+          "type": "CƯỚC",
+          "name": "Yonex BG80 0.68mm Hard Feeling",
+          "img": "./images/soh-wooi-yik-cuoc.webp",
+          "link": "https://s.shopee.vn/AKam0xH93Y",
+          "imgZoom": 1
+        },
+        {
+          "type": "CUỐN CÁN",
+          "name": "Yonex SUPER GRAP AC102 Tacky Feel",
+          "img": "./images/soh-wooi-yik-quan-can.webp",
+          "link": "https://s.shopee.vn/40giT5PBf4",
+          "imgZoom": 1
+        }
+      ]
     }
   ],
   "bestsellers": [
