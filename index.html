@@ -1,14 +1,6 @@
 <!DOCTYPE html>
 <html lang="vi">
 <head>
-  <!-- Google Analytics 4 -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-KC2V2DQH46"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-KC2V2DQH46');
-</script>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ghiền Cầu Lông — Bio &amp; Đồ Tuyển Thủ</title>
@@ -530,15 +522,26 @@
       top: 10px;
       right: 10px;
       z-index: 2;
-      padding: 2px 8px;
-      border-radius: 999px;
-      background: rgba(0, 0, 0, 0.55);
-      backdrop-filter: blur(4px);
-      display: flex;
+      padding: 3px 6px;
+      border-radius: 6px;
+      background: rgba(11, 15, 20, 0.82);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 11px;
-      border: 1px solid rgba(255, 255, 255, 0.15);
+      border: 1px solid rgba(255, 255, 255, 0.22);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.45);
+      line-height: 1;
+    }
+
+    .flag-img {
+      width: 22px;
+      height: 15px;
+      object-fit: cover;
+      border-radius: 2.5px;
+      display: block;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
     }
 
     .athlete-see-all-card {
@@ -694,9 +697,13 @@
       .flag-badge {
         top: 8px !important;
         right: 8px !important;
-        padding: 2px 6px !important;
-        font-size: 9.5px !important;
-        border-radius: 6px !important;
+        padding: 2.5px 5px !important;
+        border-radius: 5px !important;
+      }
+      .flag-img {
+        width: 18px !important;
+        height: 12px !important;
+        border-radius: 2px !important;
       }
       .athlete-see-all-card {
         padding: 10px !important;
@@ -1441,6 +1448,20 @@
       color: #94A3B8;
       letter-spacing: 0.05em;
       margin-top: 4px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .pro-country-flag {
+      width: 17px;
+      height: 12px;
+      object-fit: cover;
+      border-radius: 2px;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.35);
+      flex-shrink: 0;
+      display: inline-block;
+      vertical-align: middle;
     }
 
     .athlete-pro-meta {
@@ -3069,14 +3090,34 @@
                 </div>
               </div>
 
-              <div style="display:grid; grid-template-columns: 2fr 1fr; gap:12px;">
+              <div style="display:grid; grid-template-columns: 1.8fr 1.2fr; gap:12px;">
                 <div class="form-group">
                   <label>Quốc gia</label>
-                  <input type="text" id="f-ath-country" class="form-control" placeholder="Ví dụ: Hàn Quốc" />
+                  <input type="text" id="f-ath-country" class="form-control" list="country-presets" placeholder="Ví dụ: Hàn Quốc, Trung Quốc, Nhật Bản..." />
+                  <datalist id="country-presets">
+                    <option value="HÀN QUỐC">South Korea</option>
+                    <option value="TRUNG QUỐC">China</option>
+                    <option value="NHẬT BẢN">Japan</option>
+                    <option value="ĐAN MẠCH">Denmark</option>
+                    <option value="VIỆT NAM">Vietnam</option>
+                    <option value="INDONESIA">Indonesia</option>
+                    <option value="MALAYSIA">Malaysia</option>
+                    <option value="ĐÀI LOAN">Taiwan / Chinese Taipei</option>
+                    <option value="THÁI LAN">Thailand</option>
+                    <option value="ẤN ĐỘ">India</option>
+                    <option value="TÂY BAN NHA">Spain</option>
+                    <option value="ANH">England / Great Britain</option>
+                    <option value="PHÁP">France</option>
+                    <option value="SINGAPORE">Singapore</option>
+                    <option value="HỒNG KÔNG">Hong Kong</option>
+                  </datalist>
                 </div>
                 <div class="form-group">
-                  <label>Cờ (Emoji)</label>
-                  <input type="text" id="f-ath-flag" class="form-control" placeholder="🇰🇷" />
+                  <label>Cờ quốc gia</label>
+                  <div style="display:flex; align-items:center; gap:8px;">
+                    <input type="text" id="f-ath-flag" class="form-control" placeholder="🇰🇷 hoặc CN, JP..." />
+                    <div id="f-ath-flag-preview" style="width:36px; height:34px; border-radius:6px; background:#141A22; display:flex; align-items:center; justify-content:center; flex-shrink:0; border:1px solid #232D39;" title="Xem trước cờ"></div>
+                  </div>
                 </div>
               </div>
 
@@ -3736,6 +3777,119 @@
       }
     };
 
+    /* ========================================================================== */
+    /* HỆ THỐNG XỬ LÝ CỜ QUỐC GIA CHUẨN ĐỒ HỌA (SẮC NÉT TRÊN MỌI THIẾT BỊ & WINDOWS) */
+    /* ========================================================================== */
+    const COUNTRY_CODE_DICTIONARY = {
+      "HÀN QUỐC": "kr", "SOUTH KOREA": "kr", "KOREA": "kr", "KOR": "kr", "REPUBLIC OF KOREA": "kr",
+      "TRUNG QUỐC": "cn", "CHINA": "cn", "CHN": "cn", "PEOPLE'S REPUBLIC OF CHINA": "cn",
+      "NHẬT BẢN": "jp", "JAPAN": "jp", "JPN": "jp",
+      "ĐAN MẠCH": "dk", "DENMARK": "dk", "DNK": "dk",
+      "VIỆT NAM": "vn", "VIETNAM": "vn", "VNM": "vn",
+      "INDONESIA": "id", "INA": "id", "IDN": "id",
+      "MALAYSIA": "my", "MAS": "my", "MYS": "my",
+      "ĐÀI LOAN": "tw", "TAIWAN": "tw", "CHINESE TAIPEI": "tw", "TPE": "tw",
+      "THÁI LAN": "th", "THAILAND": "th", "THA": "th",
+      "ẤN ĐỘ": "in", "INDIA": "in", "IND": "in",
+      "TÂY BAN NHA": "es", "SPAIN": "es", "ESP": "es",
+      "ANH": "gb", "ENGLAND": "gb", "UNITED KINGDOM": "gb", "UK": "gb", "GBR": "gb",
+      "PHÁP": "fr", "FRANCE": "fr", "FRA": "fr",
+      "ĐỨC": "de", "GERMANY": "de", "GER": "de",
+      "HÀ LAN": "nl", "NETHERLANDS": "nl", "NED": "nl",
+      "SINGAPORE": "sg", "SGP": "sg",
+      "HỒNG KÔNG": "hk", "HONG KONG": "hk", "HKG": "hk",
+      "MỸ": "us", "USA": "us", "HOA KỲ": "us", "UNITED STATES": "us",
+      "CANADA": "ca", "CAN": "ca",
+      "ÚC": "au", "AUSTRALIA": "au", "AUS": "au"
+    };
+
+    // Giải mã emoji cờ thành mã ISO 2 chữ cái (vd: 🇰🇷 -> "kr", 🇯🇵 -> "jp")
+    function emojiToCountryCode(emoji) {
+      if (!emoji || typeof emoji !== 'string') return null;
+      const chars = [...emoji.trim()];
+      if (chars.length >= 2) {
+        const code1 = chars[0].codePointAt(0);
+        const code2 = chars[1].codePointAt(0);
+        if (code1 >= 0x1F1E6 && code1 <= 0x1F1FF && code2 >= 0x1F1E6 && code2 <= 0x1F1FF) {
+          return (String.fromCharCode(code1 - 0x1F1E6 + 65) + String.fromCharCode(code2 - 0x1F1E6 + 65)).toLowerCase();
+        }
+      }
+      return null;
+    }
+
+    // Chuyển mã ISO thành emoji cờ (vd: "kr" -> 🇰🇷, "cn" -> 🇨🇳)
+    function countryCodeToEmoji(code) {
+      if (!code || typeof code !== 'string') return '';
+      const c = code.trim().toUpperCase();
+      if (c.length !== 2) return '';
+      const offset = 0x1F1E6 - 65;
+      return String.fromCodePoint(c.charCodeAt(0) + offset, c.charCodeAt(1) + offset);
+    }
+
+    // Xác định mã quốc gia chính xác nhất cho VĐV (ưu tiên tên quốc gia -> cờ)
+    function getAthleteCountryCode(ath) {
+      if (!ath) return 'vn';
+
+      const countryRaw = (ath.country || '').trim().toUpperCase();
+      // 1. So khớp chính xác tên quốc gia
+      if (countryRaw && COUNTRY_CODE_DICTIONARY[countryRaw]) {
+        return COUNTRY_CODE_DICTIONARY[countryRaw];
+      }
+
+      // 2. Tìm kiếm tên quốc gia chứa từ khóa
+      if (countryRaw) {
+        for (const [name, code] of Object.entries(COUNTRY_CODE_DICTIONARY)) {
+          if (countryRaw.includes(name) || name.includes(countryRaw)) {
+            return code;
+          }
+        }
+      }
+
+      // 3. Nếu không tìm thấy theo tên quốc gia, giải mã từ trường flag
+      const flagRaw = (ath.flag || '').trim();
+      const codeFromEmoji = emojiToCountryCode(flagRaw);
+      if (codeFromEmoji) return codeFromEmoji;
+
+      if (/^[a-zA-Z]{2}$/.test(flagRaw)) {
+        return flagRaw.toLowerCase();
+      }
+
+      return 'vn';
+    }
+
+    // Render huy hiệu cờ (Flag Badge) cho thẻ tuyển thủ (hiển thị sắc nét trên cả Windows, Mac, iOS, Android)
+    function renderAthleteFlagBadge(ath) {
+      if (!ath) return '';
+      const code = getAthleteCountryCode(ath);
+      const countryTitle = ath.country || code.toUpperCase();
+      const flagUrl = `https://flagcdn.com/w40/${code}.png`;
+      const flagUrl2x = `https://flagcdn.com/w80/${code}.png 2x`;
+      return `
+        <div class="flag-badge" title="${countryTitle}">
+          <img src="${flagUrl}" 
+               srcset="${flagUrl2x}" 
+               width="22" 
+               height="15" 
+               alt="${countryTitle}" 
+               class="flag-img" 
+               loading="lazy" 
+               onerror="this.style.display='none'; if(this.nextElementSibling) this.nextElementSibling.style.display='inline';" />
+          <span style="display:none; font-size:12px;">${ath.flag || code.toUpperCase()}</span>
+        </div>
+      `;
+    }
+
+    // Cập nhật ô xem trước cờ trong form Admin
+    function updateAdminFlagPreview() {
+      const previewEl = document.getElementById('f-ath-flag-preview');
+      if (!previewEl) return;
+      const countryVal = document.getElementById('f-ath-country')?.value || '';
+      const flagVal = document.getElementById('f-ath-flag')?.value || '';
+      const dummyAth = { country: countryVal, flag: flagVal };
+      const code = getAthleteCountryCode(dummyAth);
+      previewEl.innerHTML = `<img src="https://flagcdn.com/w40/${code}.png" class="flag-img" style="width:24px; height:16px; object-fit:cover; border-radius:2px; display:block;" alt="${code}" />`;
+    }
+
     // Bấm nút "👁 XEM TRƯỚC TRANG CHỦ" trên thanh công cụ Quản trị
     window.previewHomeFromAdmin = function() {
       if (typeof syncCurrentFormToAppData === 'function') {
@@ -4346,7 +4500,10 @@
                   <span>${getAthleteDisplayBadge(athlete)}</span>
                 </div>
                 <h2 class="athlete-pro-name">${athlete.name}</h2>
-                <div class="athlete-pro-country">${athlete.country || ''}</div>
+                <div class="athlete-pro-country">
+                  <img src="https://flagcdn.com/w40/${getAthleteCountryCode(athlete)}.png" srcset="https://flagcdn.com/w80/${getAthleteCountryCode(athlete)}.png 2x" alt="${athlete.country || ''}" class="pro-country-flag" loading="lazy" />
+                  <span>${athlete.country || ''}</span>
+                </div>
                 <div class="athlete-pro-meta">${athlete.birthplace || ''} | ${athlete.birthyear || ''}</div>
               </div>
             </div>
@@ -4618,7 +4775,7 @@
       filtered.forEach(ath => {
         tapeHtml += `
           <div class="athlete-tape-card" onclick="openAthleteDetail('${ath.id}')" role="button" tabindex="0" aria-label="Xem đồ nghề của ${ath.name}">
-            <div class="flag-badge">${ath.flag || '🏸'}</div>
+            ${renderAthleteFlagBadge(ath)}
             <img src="${resolveImageUrl(ath.portrait || '')}" alt="${ath.name}" loading="lazy" onerror="handleImgError(this)" />
             <div class="card-gradient"></div>
             <div class="card-info">
@@ -4718,7 +4875,7 @@
 
       gridContainer.innerHTML = filtered.map(ath => `
         <div class="athlete-tape-card athlete-grid-card" onclick="openAthleteDetail('${ath.id}')" role="button" tabindex="0" aria-label="Xem đồ nghề của ${ath.name}">
-          <div class="flag-badge">${ath.flag || '🏸'}</div>
+          ${renderAthleteFlagBadge(ath)}
           <img src="${resolveImageUrl(ath.portrait || '')}" alt="${ath.name}" loading="lazy" onerror="handleImgError(this)" />
           <div class="card-gradient"></div>
           <div class="card-info">
@@ -5483,7 +5640,7 @@
             <div class="item-row-left" onclick="selectAthleteForEdit(${idx})" style="cursor:pointer;">
               <img src="${resolveImageUrl(ath.portrait || '')}" class="item-row-thumb" onerror="handleImgError(this)" />
               <div>
-                <div class="item-row-title">${ath.name} ${ath.flag || ''}</div>
+                <div class="item-row-title">${ath.name} <img src="https://flagcdn.com/w40/${getAthleteCountryCode(ath)}.png" class="pro-country-flag" style="display:inline-block; vertical-align:middle; margin-left:4px;" alt="${ath.country || ''}" /></div>
                 <div class="item-row-sub">${ath.country} &bull; <span style="color:var(--accent-lime); font-weight:700;">${getAthleteDisplayBadge(ath)}</span> <span style="color:#64748b; font-size:11px;">[${isAthleteSingle(ath) ? 'Đánh đơn' : 'Đánh đôi'}]</span></div>
               </div>
             </div>
@@ -5743,6 +5900,7 @@
 
       document.getElementById('f-ath-country').value = ath.country || '';
       document.getElementById('f-ath-flag').value = ath.flag || '';
+      updateAdminFlagPreview();
       document.getElementById('f-ath-birthplace').value = ath.birthplace || '';
       document.getElementById('f-ath-birthyear').value = ath.birthyear || '';
       document.getElementById('f-ath-portrait').value = ath.portrait || '';
@@ -6034,7 +6192,9 @@
             ath.discipline = discEl.value.trim() || (chosenCat === 'Đánh đơn' ? 'Đơn Nam' : 'Đôi Nam');
           }
           ath.country = document.getElementById('f-ath-country').value.trim().toUpperCase();
-          ath.flag = document.getElementById('f-ath-flag').value.trim();
+          const rawFlagVal = document.getElementById('f-ath-flag').value.trim();
+          const detectedIso = getAthleteCountryCode({ country: ath.country, flag: rawFlagVal });
+          ath.flag = rawFlagVal || countryCodeToEmoji(detectedIso) || detectedIso.toUpperCase();
           ath.birthplace = document.getElementById('f-ath-birthplace').value.trim();
           ath.birthyear = document.getElementById('f-ath-birthyear').value.trim();
           ath.portrait = document.getElementById('f-ath-portrait').value.trim();
@@ -6307,6 +6467,28 @@
         athIdInput.addEventListener('input', (e) => {
           athIdInput.dataset.manualEdit = 'true';
           updateAthleteLinkPreview(e.target.value);
+        });
+      }
+
+      // Tự động gợi ý cờ và cập nhật ô xem trước cờ khi nhập Quốc gia
+      const athCountryInput = document.getElementById('f-ath-country');
+      const athFlagInput = document.getElementById('f-ath-flag');
+      if (athCountryInput) {
+        athCountryInput.addEventListener('input', (e) => {
+          const cVal = e.target.value.trim().toUpperCase();
+          if (athFlagInput && COUNTRY_CODE_DICTIONARY[cVal]) {
+            const iso = COUNTRY_CODE_DICTIONARY[cVal];
+            athFlagInput.value = countryCodeToEmoji(iso) || iso.toUpperCase();
+          }
+          updateAdminFlagPreview();
+        });
+        athCountryInput.addEventListener('change', () => {
+          updateAdminFlagPreview();
+        });
+      }
+      if (athFlagInput) {
+        athFlagInput.addEventListener('input', () => {
+          updateAdminFlagPreview();
         });
       }
 
