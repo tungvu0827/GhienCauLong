@@ -1054,6 +1054,57 @@
           "imgZoom": 1
         }
       ]
+    },
+    {
+      "id": "lakshya-sen",
+      "name": "LAKSHYA SEN",
+      "country": "ẤN ĐỘ",
+      "flag": "🇮🇳",
+      "category": "Đánh đơn",
+      "discipline": "Đơn Nam",
+      "birthplace": "ALMORA, UTTARAKHAND, INDIA",
+      "birthyear": "2001.08.16",
+      "portrait": "./images/lakshya-sen-profile.jpg",
+      "height": "179–180 cm",
+      "weight": "65 kg",
+      "shoesize": "EU 42–43",
+      "tension": "30–31 lbs",
+      "achievements": [
+        "HCĐ BWF World Championships 2021",
+        "Á quân All England Open 2026",
+        "Á quân All England Open 2022",
+        "Vô địch Canada Open 2023"
+      ],
+      "gear": [
+        {
+          "type": "VỢT",
+          "name": "Yonex NANOFLARE 1000Z Lightning Yellow Extra Stiff",
+          "img": "./images/lakshya-sen-vot.webp",
+          "link": "https://s.shopee.vn/9peb6jFTVq ",
+          "imgZoom": 1
+        },
+        {
+          "type": "GIÀY",
+          "name": "Yonex POWER CUSHION 65 Z4 MEN White All Around",
+          "img": "./images/lakshya-sen-giay.webp",
+          "link": " https://s.shopee.vn/1AfOZu1sy",
+          "imgZoom": 1
+        },
+        {
+          "type": "CƯỚC",
+          "name": "Yonex BG80 POWER 0.68mm Quick Repulsion",
+          "img": "./images/lakshya-sen-cuoc.webp",
+          "link": "https://s.shopee.vn/6q0zXHXK6S",
+          "imgZoom": 1
+        },
+        {
+          "type": "CUỐN CÁN",
+          "name": "Yonex SUPER GRAP AC102 3 Wraps Tacky Feel",
+          "img": "./images/lakshya-sen-quancan.webp",
+          "link": " https://s.shopee.vn/3qNNxvRVOU",
+          "imgZoom": 1
+        }
+      ]
     }
   ],
   "bestsellers": [
