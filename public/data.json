@@ -1003,6 +1003,57 @@
           "imgZoom": 1
         }
       ]
+    },
+    {
+      "id": "tuyen-thu-moi-3",
+      "name": "LIN CHUN YI",
+      "country": "CHINESE TAIPEI",
+      "flag": "🇹🇼",
+      "category": "Đánh đơn",
+      "discipline": "Đơn Nam",
+      "birthplace": "FANGLIAO, PINGTUNG, TAIWAN",
+      "birthyear": "1999.10.02",
+      "portrait": "./images/lin-chun-yi-profile.jpg",
+      "height": "181 cm",
+      "weight": "70 kg - 72 kg",
+      "shoesize": "EU 42-44",
+      "tension": "30 lbs",
+      "achievements": [
+        "Vô địch All England Open 2026",
+        "Vô địch India Open 2026",
+        "Vô địch Taipei Open 2024",
+        "Hạng cao nhất thế giới: Số 8"
+      ],
+      "gear": [
+        {
+          "type": "VỢT",
+          "name": "Yonex ASTROX 88D PRO Black / Silver Stiff — Head Heavy 4U ~83g",
+          "img": "./images/lin-chun-yi-profile.jpg",
+          "link": "https://s.shopee.vn/4B0EIRp9lh",
+          "imgZoom": 1
+        },
+        {
+          "type": "GIÀY",
+          "name": "Yonex POWER CUSHION ECLIPSION Z 3rd Generation",
+          "img": "./images/linchunyi-vot.webp",
+          "link": "https://s.shopee.vn/4B0EJDwVdX",
+          "imgZoom": 1
+        },
+        {
+          "type": "CƯỚC",
+          "name": "Yonex BG80 0.68mm Hard Feelin",
+          "img": "./images/linchunyi-cuoc.webp",
+          "link": " https://s.shopee.vn/20vjjPLY1v",
+          "imgZoom": 1
+        },
+        {
+          "type": "CUỐN CÁN",
+          "name": "Yonex SUPER GRAP AC102 3 Wraps Tacky Feel",
+          "img": "./images/linchunyi-quancan.webp",
+          "link": "https://s.shopee.vn/4fwUua8ztw",
+          "imgZoom": 1
+        }
+      ]
     }
   ],
   "bestsellers": [
