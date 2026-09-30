@@ -1105,6 +1105,108 @@
           "imgZoom": 1
         }
       ]
+    },
+    {
+      "id": "chirag-shetty",
+      "name": "CHIRAG SHETTY",
+      "country": "ẤN ĐỘ",
+      "flag": "🇮🇳",
+      "category": "Đánh đôi",
+      "discipline": "Đôi Nam",
+      "birthplace": "MUMBAI, MAHARASHTRA, INDIA",
+      "birthyear": "1997.07.04",
+      "portrait": "./images/chirag-shetty-profile.jpg",
+      "height": "187 cm",
+      "weight": "75 kg",
+      "shoesize": "EU 44–45",
+      "tension": "31 lbs",
+      "achievements": [
+        "Vô địch China Masters 2026",
+        "HCV Asian Games 2022/2023",
+        "Vô địch Badminton Asia Championships 2023",
+        "Từng đạt Số 1 Thế Giới cùng Satwiksairaj Rankireddy"
+      ],
+      "gear": [
+        {
+          "type": "VỢT",
+          "name": "Yonex ARCSABER 11 PRO Grayish Pearl Stiff",
+          "img": "./images/chirag-shetty-vot.webp",
+          "link": " https://s.shopee.vn/3B7pHfzDrk",
+          "imgZoom": 1
+        },
+        {
+          "type": "GIÀY",
+          "name": "Yonex POWER CUSHION 65Z4",
+          "img": "./images/chirag-shetty-giay.webp",
+          "link": "https://s.shopee.vn/8pmC2AcWYZ ",
+          "imgZoom": 1
+        },
+        {
+          "type": "CƯỚC",
+          "name": "Yonex BG65 0.70mm Durability",
+          "img": "./images/chirag-shetty-cuoc.jpg",
+          "link": "https://s.shopee.vn/2Vs8UbBwWc",
+          "imgZoom": 1
+        },
+        {
+          "type": "CUỐN CÁN",
+          "name": "Yonex SUPER GRAP AC102 3 Wraps",
+          "img": "./images/chirag-shetty-quancan.webp",
+          "link": "https://s.shopee.vn/gQUJI7L3X",
+          "imgZoom": 1
+        }
+      ]
+    },
+    {
+      "id": "satwiksairaj-rankireddy",
+      "name": "SATWIKSAIRAJ RANKIREDDY",
+      "country": "ẤN ĐỘ",
+      "flag": "🇮🇳",
+      "category": "Đánh đôi",
+      "discipline": "Đôi Nam",
+      "birthplace": "AMALAPURAM, ANDHRA PRADESH, INDIA",
+      "birthyear": "2000.08.13",
+      "portrait": "./images/satwiksairaj-rankireddy-profile.jpg",
+      "height": "184 cm",
+      "weight": "77 kg",
+      "shoesize": "EU 44–45",
+      "tension": "32 lbs",
+      "achievements": [
+        "Kỷ lục Guinness cú đánh cầu lông nhanh nhất nam: 565 km/h",
+        "HCV Asian Games 2022/2023",
+        "Vô địch China Masters 2026",
+        "Từng đạt Số 1 Thế Giới cùng Chirag Shetty"
+      ],
+      "gear": [
+        {
+          "type": "VỢT",
+          "name": "Yonex DUORA Z-STRIKE Black",
+          "img": "./images/satwiksairaj-rankireddy-vot.jpg",
+          "link": " https://s.shopee.vn/1VzbHjZteU",
+          "imgZoom": 1
+        },
+        {
+          "type": "GIÀY",
+          "name": "Yonex POWER CUSHION 65Z4 MEN White",
+          "img": "./images/satwiksairaj-rankireddy-giay.webp",
+          "link": " https://s.shopee.vn/8fSlozGM7e ",
+          "imgZoom": 1
+        },
+        {
+          "type": "CƯỚC",
+          "name": "Yonex BG80 0.68mm Hard Feeling ",
+          "img": "./images/satwiksairaj-rankireddy-cuoc.webp",
+          "link": "https://s.shopee.vn/20vrso4JNj",
+          "imgZoom": 1
+        },
+        {
+          "type": "CUỐN CÁN",
+          "name": "Yonex TOWEL GRIP Cotton",
+          "img": "./images/satwiksairaj-rankireddy-quancan.webp",
+          "link": " https://s.shopee.vn/6AlQqWmpkM",
+          "imgZoom": 1
+        }
+      ]
     }
   ],
   "bestsellers": [
