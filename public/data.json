@@ -1208,6 +1208,108 @@
           "imgZoom": 1
         }
       ]
+    },
+    {
+      "id": "yuta-watanabe",
+      "name": "YUTA WATANABE",
+      "country": "NHẬT BẢN",
+      "flag": "🇯🇵",
+      "category": "Đánh đôi",
+      "discipline": "Đôi Nam / Nam Nữ",
+      "birthplace": "SUGINAMI, TOKYO, JAPAN",
+      "birthyear": "1997.06.13",
+      "portrait": "./images/watanabe-profile.jpg",
+      "height": "167 cm",
+      "weight": "56 kg",
+      "shoesize": "EU 41–42",
+      "tension": "~32 lbs",
+      "achievements": [
+        "HCĐ Olympic Paris 2024 — Mixed Doubles",
+        "Vô địch Korea Masters 2026 — Mixed Doubles",
+        "Vô địch Taipei Open 2026 — Mixed Doubles",
+        "Vô địch All England 2021 — Men's Doubles"
+      ],
+      "gear": [
+        {
+          "type": "VỢT",
+          "name": "Li-Ning AXFORCE 90 ",
+          "img": "./images/watanabe-vot.webp",
+          "link": "https://s.shopee.vn/1BMrt6Dnbh ",
+          "imgZoom": 1
+        },
+        {
+          "type": "GIÀY",
+          "name": "Li-Ning Blade DF-01 Max AYAU003",
+          "img": "./images/watanabe-giay.webp",
+          "link": "https://s.shopee.vn/2LYpHOF8kr ",
+          "imgZoom": 1
+        },
+        {
+          "type": "CƯỚC",
+          "name": "Li-Ning No.1 AXJJ018 0.65mm",
+          "img": "./images/watanabe-cuoc.webp",
+          "link": "https://s.shopee.vn/6VOOFAZDsK ",
+          "imgZoom": 1
+        },
+        {
+          "type": "CUỐN CÁN",
+          "name": "Cuốn cán Li-Ning",
+          "img": "./images/watanabe-quancan.webp",
+          "link": "https://s.shopee.vn/1AuVHayM9",
+          "imgZoom": 1
+        }
+      ]
+    },
+    {
+      "id": "arisa-higashino",
+      "name": "ARISA HIGASHINO",
+      "country": "NHẬT BẢN",
+      "flag": "🇯🇵",
+      "category": "Đánh đôi",
+      "discipline": "Đôi Nam Nữ",
+      "birthplace": "IWAMIZAWA, HOKKAIDO, JAPAN",
+      "birthyear": "1996.08.01",
+      "portrait": "./images/higashino-profile.jfif",
+      "height": "160 cm",
+      "weight": "56kg",
+      "shoesize": "EU 39–40",
+      "tension": "28/30 lbs",
+      "achievements": [
+        "HCĐ Olympic Paris 2024 — Mixed Doubles",
+        "Vô địch Japan Open 2023 — Mixed Doubles",
+        "Vô địch All England 2022 — Mixed Doubles",
+        "Vô địch India Open 2025 — Women's Doubles"
+      ],
+      "gear": [
+        {
+          "type": "VỢT",
+          "name": "Yonex NANOFLARE 700 PRO Midnight Purple Medium Flex",
+          "img": "./images/higashino-vot.webp",
+          "link": "https://s.shopee.vn/7KxVFsY32C ",
+          "imgZoom": 1
+        },
+        {
+          "type": "GIÀY",
+          "name": "Yonex POWER CUSHION 65 Z WOMEN All Around",
+          "img": "./images/higashino-giay.webp",
+          "link": "https://s.shopee.vn/8AWcFSm1Dn",
+          "imgZoom": 1
+        },
+        {
+          "type": "CƯỚC",
+          "name": "Yonex EXBOLT 63 0.63mm",
+          "img": "./images/higashino-cuoc.webp",
+          "link": "https://s.shopee.vn/7Ae53gMEKf",
+          "imgZoom": 1
+        },
+        {
+          "type": "CUỐN CÁN",
+          "name": "Cuốn cán Yonex",
+          "img": "./images/higashino-quancan.webp",
+          "link": "https://s.shopee.vn/8V9SeCqang",
+          "imgZoom": 1
+        }
+      ]
     }
   ],
   "bestsellers": [
