@@ -1310,6 +1310,108 @@
           "imgZoom": 1
         }
       ]
+    },
+    {
+      "id": "zheng-siwei",
+      "name": "ZHENG SIWEI",
+      "country": "TRUNG QUỐC",
+      "flag": "🇨🇳",
+      "category": "Đánh đôi",
+      "discipline": "Đôi Nam Nữ",
+      "birthplace": "WENZHOU, ZHEJIANG, CHINA",
+      "birthyear": "1997.02.26",
+      "portrait": "./images/zhengsiwei-profile.jfif",
+      "height": "176 cm",
+      "weight": "75–80 kg",
+      "shoesize": "EU 42–43",
+      "tension": "32 lbs",
+      "achievements": [
+        "HCV Olympic Paris 2024",
+        "HCV Asian Games 2022/2023",
+        "HCV Asian Games 2018",
+        "Từng đạt Số 1 Thế Giới cùng Huang Yaqiong"
+      ],
+      "gear": [
+        {
+          "type": "VỢT",
+          "name": "VICTOR DriveX 12 ZSW AJ Zswing Collection 2.0",
+          "img": "./images/zhengsiwei-vot.jpg",
+          "link": "https://s.shopee.vn/4fwk6RBhcH ",
+          "imgZoom": 1
+        },
+        {
+          "type": "GIÀY",
+          "name": "VICTOR P8500NLiteZSW Zswing Collection 2.0",
+          "img": "./images/zhengsiwei-giay.webp",
+          "link": "https://s.shopee.vn/7KxVHcgOQg ",
+          "imgZoom": 1
+        },
+        {
+          "type": "CƯỚC",
+          "name": "Yonex AEROBITE 0.67mm ",
+          "img": "./images/zhengsiwei-cuoc.webp",
+          "link": "https://s.shopee.vn/LnkwokwKJ ",
+          "imgZoom": 1
+        },
+        {
+          "type": "CUỐN CÁN",
+          "name": "Cuốn cán VICTOR",
+          "img": "./images/zhengsiwei-quancan.jfif",
+          "link": "https://s.shopee.vn/6fhoUUpzhX ",
+          "imgZoom": 1
+        }
+      ]
+    },
+    {
+      "id": "huang-yaqiong",
+      "name": "HUANG YAQIONG",
+      "country": "TRUNG QUỐC",
+      "flag": "🇨🇳",
+      "category": "Đánh đôi",
+      "discipline": "Đôi Nam Nữ",
+      "birthplace": "QUZHOU, ZHEJIANG, CHINA",
+      "birthyear": "1994.02.28",
+      "portrait": "./images/huang-yaqiong-profile.webp",
+      "height": "164 cm",
+      "weight": "52kg",
+      "shoesize": "EU 39–40",
+      "tension": "28/30 lbs",
+      "achievements": [
+        "HCV Olympic Paris 2024",
+        "HCV National Games 2025",
+        "HCV Asian Games 2022/2023",
+        "Từng đạt Số 1 Thế Giới cùng Zheng Siwei"
+      ],
+      "gear": [
+        {
+          "type": "VỢT",
+          "name": "VICTOR AURASPEED FANTÔME F HYQ A Huang Ya Qiong Collection 2.0 2026",
+          "img": "./images/huang-yaqiong-vot.webp",
+          "link": "https://s.shopee.vn/40h3L3YBbq",
+          "imgZoom": 1
+        },
+        {
+          "type": "GIÀY",
+          "name": "VICTOR P8500NLiteHYQ A Huang Ya Qiong Collection 2.0",
+          "img": "./images/huang-yaqiong-giay.webp",
+          "link": "https://s.shopee.vn/6L4y7ObMLd",
+          "imgZoom": 1
+        },
+        {
+          "type": "CƯỚC",
+          "name": "Cước VICTOR",
+          "img": "./images/huang-yaqiong-cuoc.webp",
+          "link": "https://s.shopee.vn/7VGvVbDI65",
+          "imgZoom": 1
+        },
+        {
+          "type": "CUỐN CÁN",
+          "name": "Cuốn cán VICTOR",
+          "img": "./images/huang-yaqiong-quancan.webp",
+          "link": "https://s.shopee.vn/6AlXvBiv4",
+          "imgZoom": 1
+        }
+      ]
     }
   ],
   "bestsellers": [
